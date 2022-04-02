@@ -4,7 +4,7 @@ void print_names(char students[][20], int n)
 {
   printf("\nStudents are: \n");
   for (int i = 0; i < n; i++)
-    printf("%s\n", students[i]);
+    printf("%s\n", *(students + i));
 }
 
 int main(int argc, char const *argv[])
@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
   for (int i = 0; i < n; i++)
   {
     printf("Enter the name for student %d: ", i + 1);
-    scanf("%s", students[i]);
+    scanf("%s", *(students + i));
   }
   print_names(students, n);
   return 0;
