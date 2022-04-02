@@ -2,13 +2,14 @@
 #include <string.h>
 void histogram(const int offset, const int range)
 {
+  FILE *file = fopen("./text.txt", "r+");
   int histogram[range];
   memset(histogram, 0, sizeof(histogram)); // initialize 95 spaces for ASCII characters 32 - 127
 
   int special = 0;
 
   int c;
-  while ((c = getchar()) != EOF)
+  while ((c = fgetc(file)) != EOF)
   {
     if (c < offset || c >= (offset + range))
       special++;

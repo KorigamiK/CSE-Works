@@ -1,3 +1,4 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qlanguage=C++, backgroundcolor=, basicstyle=,\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qlanguage=C++, backgroundcolor=, basicstyle=,\\E$"}
 {"rule":"THE_SENT_END","sentence":"^\\QUsing the ?\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qcompat=1.18\\E$"}

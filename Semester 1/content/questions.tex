@@ -65,6 +65,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/1.png}
   \label{output:1}
+  \caption{Output: 1}
 \end{figure}
 
 \pagebreak
@@ -117,6 +118,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/average.png}
   \label{output:2}
+  \caption{Output: 2}
 \end{figure}
 
 
@@ -148,6 +150,7 @@ int main()
   \centering
   \includegraphics[width=4in]{Images/strlen.png}
   \label{output:3}
+  \caption{Output: 3}
 \end{figure}
 
 \pagebreak
@@ -232,6 +235,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/employee.png}
   \label{output:4}
+  \caption{Output: 4}
 \end{figure}
 
 
@@ -276,6 +280,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/student_names.png}
   \label{output:5}
+  \caption{Output: 5}
 \end{figure}
 
 \pagebreak
@@ -307,6 +312,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/xor.png}
   \label{output:6}
+  \caption{Output: 6}
 \end{figure}
 
 
@@ -342,6 +348,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/shifts.png}
   \label{output:7}
+  \caption{Output: 7}
 \end{figure}
 
 
@@ -382,6 +389,7 @@ int main(int argc, char const *argv[])
   \centering
   \includegraphics[width=4in]{Images/quotient.png}
   \label{output:9}
+  \caption{Output: 9}
 \end{figure}
 
 
@@ -391,7 +399,36 @@ int main(int argc, char const *argv[])
 Write a program in C that inputs lines of text until a blank line is entered. Then it redisplays
 each line one character at a time
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
+int main(int argc, char const *argv[])
+{
+  char x, text[100];
+  int i = 0;
+  while (x = getchar())
+  {
+    if (x == '\n')
+    {
+      for (int j = 0; j < i; j++)
+        printf("%c\n", text[j]);
+      break;
+    }
+    else
+      text[i] = x;
+    i++;
+  }
+
+  return 0;
+}
+
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=4in]{Images/print_lines.png}
+  \label{output:10}
+  \caption{Output: 10}
+\end{figure}
 
 \pagebreak
 \subsection{Queue}
@@ -482,6 +519,7 @@ int main()
   \centering
   \includegraphics[width=4in]{Images/q.png}
   \label{output:11}
+  \caption{Output: 11}
 \end{figure}
 
 
@@ -491,7 +529,29 @@ int main()
 Write a program to print the corresponding celsius to Fahrenheit table. Modify the
 temperature conversion program to print the table in reverse order, that is from 300 to 0
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
+double to_celcius(int fahr)
+{
+  return (fahr - 32) * (5.0 / 9.0);
+}
+
+int main()
+{
+  int fahr;
+  printf("Fahrenheit     \t Celcius\n");
+  for (fahr = 300; fahr >= 0; fahr = fahr - 20)
+    printf("%3d \t\t %6.1f\n", fahr, to_celcius(fahr));
+}
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=6in]{Images/temperature.png}
+  \label{output:12}
+  \caption{Output: 12}
+\end{figure}
+
 
 \pagebreak
 \subsection{Text in File}
@@ -531,6 +591,7 @@ int main()
   \centering
   \includegraphics[width=4in]{Images/input_info.png}
   \label{output:13}
+  \caption{Output: 13}
 \end{figure}
 
 
@@ -539,4 +600,62 @@ int main()
 \subsubsection{Statement}
 Write a program to print the histogram of the frequencies of different characters of its input.
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
+#include <string.h>
+void histogram(const int offset, const int range)
+{
+  FILE *file = fopen("./text.txt", "r+");
+  int histogram[range];
+  memset(histogram, 0, sizeof(histogram)); // initialize 95 spaces for ASCII characters 32 - 127
+
+  int special = 0;
+
+  int c;
+  while ((c = fgetc(file)) != EOF)
+  {
+    if (c < offset || c >= (offset + range))
+      special++;
+    else
+      ++histogram[c - offset];
+  }
+
+  for (int i = 0; i < range; ++i)
+  {
+    c = i + offset;
+    printf("%c ", c);
+    for (int j = 0; j < histogram[i]; ++j)
+      putchar('x');
+    putchar('\n');
+  }
+
+  printf("- ");
+  for (int j = 0; j < special; j++)
+    putchar('x');
+  putchar('\n');
+}
+
+int main(void)
+{
+  histogram(' ', 95); // ' ' is 32 in ascii
+}
+\end{minted}
+\pagebreak
 \subsubsection{Output}
+Input Text
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=6in]{Images/text.png}
+  \label{output:14-Text}
+  \caption{Output: 14 - Text}
+\end{figure}
+
+Histogram
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=6in]{Images/histogram1.png}
+  \includegraphics[width=6in]{Images/histogram2.png}
+  \includegraphics[width=6in]{Images/histogram3.png}
+  \label{output:14-Histogram}
+  \caption{Output: 14 - Histogram}
+\end{figure}
