@@ -1,0 +1,37 @@
+\documentclass[english,12pt,a4paper]{article}
+\input{Preamble}
+
+% Define command shortcuts
+% [2] - argument count
+% #1 - first argument
+\newcommand{\partialDiv}[2]{\dfrac{\partial{#1}}{\partial{#2}}}
+
+\begin{document}
+
+% ========================================
+% TITLE PAGE
+% ========================================
+\input{TitlePage}
+\nocite{*}
+\maketitle
+
+% First page starts from after the title page
+\setcounter{page}{1}
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\clearpage
+
+\section{Questions}
+\input{content/questions.tex}
+
+% ========================================
+% Bibliography
+% ========================================
+\clearpage
+\pagebreak
+\printbibliography
+
+\end{document}

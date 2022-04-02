@@ -1,0 +1,41 @@
+{
+  // Place your Semester 1 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "question": {
+    "scope": "latex,tex",
+    "prefix": "question",
+    "body": [
+      "\\pagebreak",
+      "\\subsection{$2}",
+
+      "\\subsubsection{Statement}",
+      "$1",
+
+      "\\subsubsection{Code}",
+
+      "\\subsubsection{Output}"
+    ],
+    "description": "New quesiton template"
+  },
+  "code": {
+    "scope": "latex,tex",
+    "prefix": "code",
+    "body": ["\\begin{minted}{c} ", "$1", "\\end{minted}"]
+  },
+  "output": {
+    "scope": "latex,tex",
+    "prefix": "output",
+    "body": [
+      "\\begin{figure}[!htb]",
+      "\\centering",
+      "\\includegraphics[width=4in]{Images/$1}",
+      "\\label{output:1}",
+      "\\end{figure}"
+    ]
+  }
+}
