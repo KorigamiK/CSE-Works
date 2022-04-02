@@ -244,8 +244,39 @@ We are expecting to store the 50 students with different length name. Write a pr
 the name with the help of pointers
 
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
 
+void print_names(char students[][20], int n)
+{
+  printf("\nStudents are: \n");
+  for (int i = 0; i < n; i++)
+    printf("%s\n", students[i]);
+}
+
+int main(int argc, char const *argv[])
+{
+  int n;
+  char students[50][20];
+  printf("Enter a number: ");
+  scanf("%d", &n);
+
+  for (int i = 0; i < n; i++)
+  {
+    printf("Enter the name for student %d: ", i + 1);
+    scanf("%s", students[i]);
+  }
+  print_names(students, n);
+  return 0;
+}
+
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=4in]{Images/student_names.png}
+  \label{output:5}
+\end{figure}
 
 \pagebreak
 \subsection{XOR Operation}
@@ -256,8 +287,28 @@ a program in 'C' which returns the outcome of an Exclusive OR operation performe
 operands
 
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
 
+int main(int argc, char const *argv[])
+{
+  int a, b;
+  printf("Enter 2 numbers:\n");
+  scanf("%d", &a);
+  scanf("%d", &b);
+  int xor_result = (a | b) & (~(a & b));
+  printf("The XOR of %d and %d is equal to %d\n", a, b, xor_result);
+  return 0;
+}
+
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=4in]{Images/xor.png}
+  \label{output:6}
+\end{figure}
+
 
 \pagebreak
 \subsection{Left and Right Shift}
@@ -267,8 +318,32 @@ Write a program in C to show that Right shift effectively divides a number by 2 
 effectively multiplies a number by 2
 
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
 
+int main(int argc, char const *argv[])
+{
+  int a;
+  printf("Enter a numbers: ");
+  scanf("%d", &a);
+
+  for (int i = 0; i < 4; i++)
+    printf("%d Right shifted %d times is equal to %d\n", a, i, a >> i);
+  printf("\n");
+  for (int i = 0; i < 4; i++)
+    printf("%d Left shifted %d times is equal to %d\n", a, i, a << i);
+
+  return 0;
+}
+
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=4in]{Images/shifts.png}
+  \label{output:7}
+\end{figure}
+
 
 \pagebreak
 \subsection{Magic Number}
@@ -286,7 +361,29 @@ Using the ? Operator, rewrite the magic number program discussed in the class
 Using if else statement write a program in ‘C’ to read two integers from the user and display
 the quotient. Your program should be able to detect divide by zero.
 \subsubsection{Code}
+\begin{minted}{c} 
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+  float a, b;
+  printf("Enter 2 numbers:\n");
+  scanf("%f", &a);
+  scanf("%f", &b);
+  b == 0 
+    ? printf("Undefined Behavior\n") 
+    : printf("The quotient is: %.2f\n", a / b);
+  return 0;
+}
+
+\end{minted}
 \subsubsection{Output}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=4in]{Images/quotient.png}
+  \label{output:9}
+\end{figure}
+
 
 \pagebreak
 \subsection{Text File}
