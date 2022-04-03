@@ -37,5 +37,22 @@
       "\\label{output:1}",
       "\\end{figure}"
     ]
+  },
+  "new_pyhton": {
+    "scope": "latex,tex",
+    "prefix": "new python",
+    "body": [
+      "\\subsection{$1}\n",
+      "\\subsubsection{$2}\n",
+      "\\inputminted[]{python}{../Code/$3.py}",
+      "\n\\subsubsection{Output}",
+      "\\begin{figure}[!htb]",
+      "\\centering",
+      "\\includegraphics[width=5in]{Images/$4.png}",
+      "\\label{output:py-$5}",
+      "\\caption{Output - py - $5}",
+      "\\end{figure}",
+      "\\pagebreak"
+    ]
   }
 }
