@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{url}
+\usepackage{setspace}               
+\usepackage[superscript]{cite}      
+\usepackage{graphicx}               
+\usepackage[normalem]{ulem}   		
+\graphicspath{ {Figures/} }         
+\usepackage{caption} 
+\usepackage{cite}
+\usepackage{indentfirst} 
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{amsmath}  				
+\textwidth=6.5in                    
+\oddsidemargin=0.0in                
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{English Practical}
+\rhead{\thepage}
+
+\usepackage{color}   
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=black,
+    linktoc=all, 
+    linkcolor=black,
+}
+
+\usepackage{tocloft}
+
+\renewcommand{\cfttoctitlefont}{\Huge\bfseries}% Similar to \chapter* in report
+\setlength{\cftbeforetoctitleskip}{50pt}% Similar to \chapter* in report
+\setlength{\cftaftertoctitleskip}{40pt}% Similar to \chapter* in report
+
+\begin{document}
+
+\begin{titlepage}
+
+  \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+  \center
+  \textsc{\LARGE Netaji Subhas University of Technology}\\[1.5cm]
+
+  \includegraphics[width=30mm]{NSUT.png}\\[1.0cm]
+
+  \HRule \\[0.7cm]
+  { \huge \bfseries English Lab Practicals}\\[0.4cm]
+  \HRule \\[1.5cm]
+
+
+  % \begin{minipage}{0.4\textwidth}
+  %   \begin{flushleft} \large
+  %     Kushagra Lakhwani
+  %   \end{flushleft}
+  % \end{minipage}
+  % ~
+  % \begin{minipage}{0.4\textwidth}
+  %   \begin{flushright} \large
+  %     2021UCI8036
+  %   \end{flushright}
+  % \end{minipage}
+  % \bigskip\\[1cm]
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+      Name              & Branch                                & Roll Number \\
+      \hline
+      Kushagra Lakhwani & Computer Science (Internet of Things) & 20218036    \\
+    \end{tabular}
+  \end{table}
+
+
+  \vfill
+  {\large \today}\\[2cm]
+
+
+
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\pagebreak
+\input{Content/activities.tex}
+
+\newpage
+
+\section{References}
+
+\begingroup
+\renewcommand{\section}[2]{}
+\begin{thebibliography}{10}
+
+  \bigskip
+
+
+\end{thebibliography}
+\endgroup
+
+
+\end{document}
+
