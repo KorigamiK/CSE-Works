@@ -1,0 +1,30 @@
+{
+	// Place your English workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"New activity": {
+		"prefix": "activity",
+		"body": [
+			"\\section{$1}\n",
+			"\\subsection{Objective}",
+			"\\begin{enumerate}",
+			"\t$2",
+			"\\end{enumerate}\n",
+			"\\subsection{Methodology}",
+			"\\begin{enumerate}",
+			"\t$3",
+			"\\end{enumerate}\n",
+			"\\subsection{Activity}\n",
+			"\\subsection{Learning Outcomes}",
+			"\\begin{enumerate}",
+			"\t$4",
+			"\\end{enumerate}\n",
+			"\\pagebreak\n"
+		],
+		"description": "New Practical Activity"
+	}
+}
