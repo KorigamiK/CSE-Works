@@ -18,13 +18,20 @@
 			"\\begin{enumerate}",
 			"\t$3",
 			"\\end{enumerate}\n",
-			"\\subsection{Activity}\n",
 			"\\subsection{Learning Outcomes}",
 			"\\begin{enumerate}",
 			"\t$4",
 			"\\end{enumerate}\n",
+			"\\subsection{Activity}\n",
 			"\\pagebreak\n"
 		],
 		"description": "New Practical Activity"
+	},
+	"New Appendix": {
+		"prefix": "append",
+		"body": [
+			"\n\\section{$1}",
+			"\\label{$1}\n"
+		]
 	}
 }
