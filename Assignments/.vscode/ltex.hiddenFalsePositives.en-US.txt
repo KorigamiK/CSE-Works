@@ -1,0 +1,2 @@
+{"rule":"IN_THE_MEAN_TIME_PHRASE","sentence":"^\\QMean time on the phone\\E$"}
+{"rule":"IN_THE_MEAN_TIME_PHRASE","sentence":"^\\QMean time on the phone Variance of the time Mr. X talks\\E$"}
