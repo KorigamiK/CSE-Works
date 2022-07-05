@@ -1,0 +1,1 @@
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q[Wilheim - a person]Wilheim will [Frederico - a person]Frederico fred\\E$"}
