@@ -7,5 +7,6 @@
     "vhdl.formatter.align.function": true,
     "vhdl.formatter.align.comments": true,
     "vhdl.formatter.align.generic": true,
-    "vhdl.formatter.align.mode": "Local"
+    "vhdl.formatter.align.mode": "Local",
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }

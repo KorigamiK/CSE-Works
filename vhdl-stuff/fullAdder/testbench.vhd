@@ -20,7 +20,7 @@ begin
 	uut : full_adder port map(
 		a    => a,
 		b    => b,
-		cin  => cin, DefaultCase
+		cin  => cin,
 		s    => s,
 		cout => cout
 	);
