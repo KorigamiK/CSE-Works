@@ -1,0 +1,77 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage[document]{ragged2e}
+
+\setlength {\marginparwidth }{2cm}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{dirtytalk}
+\usepackage{hyperref} 
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Date Settings
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+\usepackage[english]{babel}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+
+% Fancy heading on all pages
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LO, L]{\tiny Title}
+\fancyfoot{}
+\fancyfoot[C, CO]{\footnotesize \thepage}
+
+\usepackage{lmodern}
+
+% Bibliography Style
+\usepackage[square,numbers]{natbib}
+%\bibliographystyle{abbrvnat}
+%\bibliographystyle{unsrt}
+\bibliographystyle{IEEEtran}
+
+\def\skipspace{\vskip1em}
+
+\begin{document}
+
+\input{title_page}
+% \input{certificate}
+% \input{certificate_of_approval}
+\input{abstract}
+
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\chapter{Introduction}
+\input{content/chap_1}
+\chapter{Chapter 2 Name}
+\input{content/chap_2}
+\chapter{Acknowledgement}
+\input{content/acknowledgement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{References}
+\bibliography{mybibliograph}
+%\input{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{appendix}
+\end{document}
+
