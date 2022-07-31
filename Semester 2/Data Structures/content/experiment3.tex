@@ -1,0 +1,36 @@
+\section{Search inside Array}
+\label{sec:Search inside Array}
+
+\subsection{Objective}
+Write a program to search for a number in array.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Start
+    [Initialize counter variable. ] Set i = 0
+    Repeat Step 04 and 05 for i = 0 to i < n
+    if a[i] = x, then jump to step 07
+    [Increase counter. ] Set i = i + 1
+    [End of step 03 loop. ]
+    Print x found at i + 1 position and go to step 09
+    Print x not found (if a[i] != x, after all the iteration of the
+    above for loop. )
+Stop
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/search.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Please Enter the size of an array : 5
+
+Please Enter 5 elements of an array: 
+1 2 3 4 5
+
+Please Enter the Search Element : 2
+
+We found the Search Element 2 at Position 2
+\end{lstlisting}
+
+\pagebreak

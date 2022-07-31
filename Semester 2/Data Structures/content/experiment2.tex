@@ -1,0 +1,45 @@
+\section{Array Insertion/Deletion}
+\label{sec:Array Insertion/Deletion}
+
+\subsection{Objective}
+Write a Program to insert and delete an element from an array.
+
+\subsection{Algorithm}
+
+\subsubsection{Deletion}
+\begin{lstlisting}[style=mystyle]
+Start
+Set J = K
+Repeat steps 4 and 5 while J < N
+    Set LA[J] = LA[J + 1]
+    Set J = J+1
+Set N = N-1
+Stop
+\end{lstlisting}
+
+\subsubsection{Insertion}
+\begin{lstlisting}[style=mystyle]
+Begin
+IF N = MAX, return
+ELSE
+N = N + 1
+SEEK Location index
+For All Elements from A[index] to A[N]
+    Move to next adjacent location
+    A[index] = New_Element
+End
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/array.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Enter 7 elements: 2 4 6 5 1 5 7
+Array before insertion: 2 4 6 5 1 5 7 
+Enter the element to be inserted: 3
+Enter the position at which the element is to be inserted: 2
+Array after insertion: 2 3 4 6 5 1 5 7
+\end{lstlisting}
+
+\pagebreak

@@ -1,0 +1,20 @@
+{
+    "Experiment": {
+        "prefix": "experiment",
+        "description": "new experiment",
+        "body": [
+            "\\section{${1:title}}",
+            "\\label{sec:${1:title}}\n",
+            "\\subsection{Objective}",
+            "\n\\subsection{Algorithm}",
+            "\\begin{lstlisting}[style=mystyle]",
+            "\\end{lstlisting}\n",
+            "\\subsection{Code}",
+            "\\inputminted[]{c}{../../Code/${2:title}.c}\n",
+            "\\subsection{Output}",
+            "\\begin{lstlisting}[style=output]",
+            "\\end{lstlisting}\n",
+            "\\pagebreak\n",
+        ]
+    }
+}

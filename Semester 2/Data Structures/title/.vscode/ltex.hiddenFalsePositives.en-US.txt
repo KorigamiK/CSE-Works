@@ -1,4 +1,0 @@
-{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QBaxterSans[Path=./fonts/Baxter/, Extension = .otf, UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-RegularItalic, BoldItalicFont=*-BoldItalic ]\\E$"}
-{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QBaxterSans[Path=./fonts/Baxter/, Extension = .otf, UprightFont=*-Regular, BoldFont=*-Bold, ItalicFont=*-RegularItalic, BoldItalicFont=*-BoldItalic ]\\E$"}
-{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qsidebyside, size=minimal, width=, colback=white, lower separated=false, halign lower=flush right, frame empty,\\E$"}
-{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qsidebyside, size=minimal, width=, colback=white, lower separated=false, halign lower=flush right, frame empty,\\E$"}

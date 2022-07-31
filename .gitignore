@@ -225,3 +225,7 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 vhdl-stuff/board.o
+Code/array
+Code/csort
+Code/mean
+Code/search

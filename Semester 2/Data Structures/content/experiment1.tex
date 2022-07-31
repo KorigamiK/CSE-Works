@@ -1,0 +1,65 @@
+\section{Mean and Median}
+\label{sec:mean}
+\subsection{Objective}
+Write a program to find the mean and the median of the numbers stored in an array.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Start
+Step 1 -> declare function to calculate mean
+    double mean(int arr[], int size)
+    declare int sum = 0
+    Loop For int i = 0 and i < size and i++
+    Set sum += arr[i]
+End
+    return (double)sum/(double)size
+
+Step 2  -> declare function to calculate median
+    double median(int arr[], int size)
+    call sort(arr, arr+size)
+    IF (size % 2 != 0)
+    return (double)arr[size/2]
+End
+    return (double)(arr[(size-1)/2] + arr[size/2])/2.0
+
+Step 3  -> In main()
+    Declare int arr[] = {3,5,2,1,7,8}
+    Declare int size = sizeof(arr)/sizeof(arr[0])
+    Call mean(arr, size)
+    Call median(arr, size)
+Stop
+
+\end{lstlisting}
+
+\pagebreak
+\subsection{Code}
+
+\inputminted[]{c}{../../Code/mean.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Enter the size of the arr:
+5
+
+enter the elements: 
+21
+23
+44
+55
+11
+
+Your array is:
+21 23 44 55 11 
+your sorted array here: 
+Your array is:
+11 21 23 44 55 
+
+your mean is given as: 30
+your median is given as: 23
+\end{lstlisting}
+
+% Prova codice inline: \lstinline[style=cmd]|this is an inline code ...|\\
+
+% This is section \autoref{sec:mean}
+
+\pagebreak
