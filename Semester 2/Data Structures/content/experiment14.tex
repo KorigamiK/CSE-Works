@@ -1,0 +1,43 @@
+\section{Depth First Search}
+\label{sec:Depth First Search}
+
+\subsection{Objective}
+Write a program for Depth first search.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+For the DFS implementation we'll put each vertex of the graph into one of two categories:
+    1. Not Visited
+    2. Visited
+Now we'll mark each vertex as visited while avoiding cycles.
+The algorithm will go as follows:
+    Start by putting any one of the graph's vertices on top of a stack.
+    Take the top item of the stack and add it to the visited list.
+    Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the top of the stack.
+    Keep repeating steps 2 and 3 until the stack is empty.
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/dfs.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Adjacency list of vertex 0
+2 -> 1 -> 
+
+Adjacency list of vertex 1
+2 -> 0 -> 
+
+Adjacency list of vertex 2
+3 -> 1 -> 0 -> 
+
+Adjacency list of vertex 3
+2 -> 
+
+Visited 2 
+Visited 3 
+Visited 1 
+Visited 0 
+\end{lstlisting}
+
+\pagebreak

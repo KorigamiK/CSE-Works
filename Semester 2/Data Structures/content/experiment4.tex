@@ -2,10 +2,33 @@
 \label{sec:Sort Array}
 
 \subsection{Objective}
-write a program to sort an array
+Write a program to sort an array
 
 \subsection{Algorithm}
 \begin{lstlisting}[style=mystyle]
+START
+    INITIALIZE arr[] ={5, 2, 8, 7, 1 }..
+    SET temp =0
+    length= sizeof(arr)/sizeof(arr[0])
+    PRINT "Elements of Original Array"
+    SET i=0 REPEAT STEP 7 and STEP 8 UNTIL i<length
+    PRINT arr[i]
+    i=i+1
+    SET i=0 REPEAT STEP 10 to STEP UNTIL i<n
+    SET j=i+1 REPEAT STEP 11 UNTIL j<length
+    if(arr[i]>arr[j]) then
+        temp = arr[i]
+        arr[i]=arr[j]
+        arr[j]=temp
+        j=j+1
+        i=i+1
+    PRINT new line
+    PRINT "Elements of array sorted in ascending order"
+    SET i=0 REPEAT STEP 17 and STEP 18 UNTIL i<length
+    PRINT arr[i]
+    i=i+1
+    RETURN 0
+END.
 \end{lstlisting}
 
 \subsection{Code}

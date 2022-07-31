@@ -1,0 +1,57 @@
+\section{Stack}
+\label{sec:Stack}
+
+\subsection{Objective}
+Write a program to implement a stack using an array.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Start
+Step 1 ->  Implement a function to push elements into stack
+    void push()
+    if(top > size of array -1)
+        print("stack overflow")
+    else
+        input the value to be pushed
+        top=top+1
+        stack[top]=new_element
+End
+Step 2 -> Implement a function to pop from stack
+    void pop()
+    if(top < -1)
+        print("stack underflow")
+    else
+        delete stack[top]
+        top=top-1
+    End
+Stop
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/stack.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+  Enter the size of STACK[MAX=100]: 4
+
+        STACK OPERATIONS USING ARRAY
+    --------------------------------
+        1.PUSH
+        2.POP
+        3.DISPLAY
+        4.EXIT
+ Enter the Choice:1
+ Enter a value to be pushed:2
+
+ Enter the Choice:2
+
+         The popped elements is 2
+ Enter the Choice:3
+
+ The STACK is empty
+ Enter the Choice:4
+
+         EXIT POINT
+\end{lstlisting}
+
+\pagebreak

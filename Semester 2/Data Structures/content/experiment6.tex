@@ -1,0 +1,63 @@
+\section{Linked List Deletion}
+\label{sec:Linked List Deletion}
+
+\subsection{Objective}
+Write a program to insert and delete a node from linked list.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Start
+Step 1 -> Implement a function to insert at the beginning of linked list
+    void insertAtBeginning(struct Node** head, int newdata)
+    Allocate memory for new node
+    Set data of new node = newdata
+    Set next pointer of new node = head
+    Set head pointer = new node
+End
+Step 2 -> Implement a function to insert at the end of the linked list
+    void insertAtEnd(struct Node** head, int newdata)
+    Allocate memory for newNode
+    Set data of newNode = newdata
+    Set next pointer of newNode = NULL
+    Let lastNode = Head
+    If(lastNode = NULL)
+        Set head = newNode
+        return
+    Else
+        Traverse till lastNode -> next!=NULL
+        Set lastNode -> next=newNode
+return
+End
+Step 3 -> Implement a function to insert after a given node
+void insertAfter(struct Node* prev_Node, int newdata)
+    if(prev_Node = NULL)
+        print("previous node cannot be NULL")
+        return
+    Else
+        Allocate memory for newNode
+        Set data of newNode = newdata
+        Set next pointer of newNode = pre_Node -> next
+        Set next pointer of prev_Node = newNode
+End
+Step 4 -> Implement a function to delete a given node
+void deleteNode(struct Node** head, int key)
+    Let Node*temp = head
+    Traverse while(temp!=NULL)
+    If(temp -> data=key)
+        Free(temp)
+        Return
+    Else
+        temp=temp -> next
+    Stop
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/linkedListDeletion.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Created Linked list is: 1 7 8 6 4
+Linked list after deletion: 1 7 6 4 
+\end{lstlisting}
+
+\pagebreak

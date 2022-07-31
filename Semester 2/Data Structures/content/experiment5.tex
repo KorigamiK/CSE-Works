@@ -1,0 +1,35 @@
+\section{Linked List}
+\label{sec:Linked List}
+
+\subsection{Objective}
+Write a program to implement a linked list.
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Create a class Node which has two attributes: data and next. Next is a pointerto the next node.
+Create another class which has two attributes: head and tail.
+
+addNode() will add a new node to the list:
+    a. Create a new node.
+    b. It first checks, whether the head is equal to null which means the list is
+    empty.
+    c. If the list is empty, both head and tail will point to the newly added node.
+    d. If the list is not empty, the new node will be added to end of the list such that tail's next will point to the newly added node. This new node will become the new tail of the list.
+
+    display() will display the nodes present in the list:
+
+    Define a node current which initially points to the head of the list.
+    a. Traverse through the list till current points to null.
+    b. Display each node by making current to point to node next to it in each iteration.
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/linkedList.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+    Nodes of singly linked list:
+    1 2 3 4
+\end{lstlisting}
+
+\pagebreak
