@@ -35,9 +35,9 @@
 ## Build tool auxiliary files:
 *.fdb_latexmk
 *.synctex
-*.synctex(busy)
+*.synctex\(busy\)
 *.synctex.gz
-*.synctex.gz(busy)
+*.synctex.gz\(busy\)
 *.pdfsync
 
 ## Auxiliary and intermediate files from other packages:
