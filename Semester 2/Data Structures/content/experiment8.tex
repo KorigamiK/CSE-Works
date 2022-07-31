@@ -1,0 +1,51 @@
+\section{Queue}
+\label{sec:Queue}
+
+\subsection{Objective}
+Write a program to implement a queue using an array
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+Queue operations work as follows:
+
+    two pointers FRONT and REAR
+    FRONT track the first element of the queue
+    REAR track the last element of the queue
+    initially, set value of FRONT and REAR to -1
+
+Enqueue Operation
+
+    check if the queue is full
+    for the first element, set the value of FRONT to 0
+    increase the REAR index by 1
+    add the new element in the position pointed to by REAR
+
+Dequeue Operation
+
+    check if the queue is empty
+    return the value pointed by FRONT
+    increase the FRONT index by 1
+    for the last element, reset the values of FRONT and REAR to -1
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/queue.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Queue is Empty!!
+Inserted -> 1
+Inserted -> 2
+Inserted -> 3
+Inserted -> 4
+Inserted -> 5
+Queue is Full!!
+Queue elements are:
+1  2  3  4  5  
+
+Deleted : 1
+Queue elements are:
+2  3  4  5 
+\end{lstlisting}
+
+\pagebreak

@@ -1,11 +1,16 @@
-\section{Breath First Search}
-\label{sec:Breath First Search}
+\section{Breadth First Search}
+\label{sec:Breadth First Search}
 
 \subsection{Objective}
 Write a program for Breadth first search.
 
 \subsection{Algorithm}
 \begin{lstlisting}[style=mystyle]
+Create a queue Q 
+Mark v as visited and put v into Q 
+While Q is non-empty 
+    remove the head u of Q 
+    mark and enqueue all (unvisited) neighbours of u
 \end{lstlisting}
 
 \subsection{Code}
@@ -13,6 +18,20 @@ Write a program for Breadth first search.
 
 \subsection{Output}
 \begin{lstlisting}[style=output]
+Queue contains 
+0 Resetting queue Visited 0
+
+Queue contains 
+2 1 Visited 2
+
+Queue contains 
+1 4 Visited 1
+
+Queue contains 
+4 3 Visited 4
+
+Queue contains 
+3 Resetting queue Visited 3
 \end{lstlisting}
 
 \pagebreak

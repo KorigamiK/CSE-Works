@@ -1,0 +1,25 @@
+\section{Factorial}
+\label{sec:Factorial}
+
+\subsection{Objective}
+Write a program for Factorial
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+factorial(n)
+    If n == 1 then return 1
+    Else 
+        f = n * factorial(n - 1)
+    Return f
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/factorial.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Enter an integer: 11
+Factorial of 11 = 39916800
+\end{lstlisting}
+
+\pagebreak

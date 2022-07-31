@@ -1,0 +1,27 @@
+\section{Height of a Binary Tree}
+\label{sec:Height of a Binary Tree}
+
+\subsection{Objective}
+Write a program to find the height of a Binary tree
+
+\subsection{Algorithm}
+\begin{lstlisting}[style=mystyle]
+maxDepth()
+1. If tree is empty then return -1
+2. Else
+     (a) Get the max depth of left subtree recursively  i.e., call maxDepth( tree->left-subtree)
+     (a) Get the max depth of right subtree recursively  i.e., call maxDepth( tree->right-subtree)
+     (c) Get the max of max depths of left and right subtrees and add 1 to it for the current node.
+         max_depth = max(max dept of left subtree, max depth of right subtree) + 1
+     (d) Return max_depth
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/btheight.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+    Height of tree is 2
+\end{lstlisting}
+
+\pagebreak
