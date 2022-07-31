@@ -1,0 +1,116 @@
+\section{Linked List Operations}
+\label{sec:Linked List Operations}
+
+\subsection{Objective}
+Write a program for insertion, deletion and traversal in linked list.
+\subsection{Algorithm}
+
+\subsubsection{Traversal}
+\begin{lstlisting}[style=mystyle]
+Step 1: [INITIALIZE] SET PTR = HEAD
+Step 2: Repeat Steps 3 and 4 while PTR != NULL
+Step 3: Apply process to PTR -> DATA
+Step 4: SET PTR = PTR->NEXT
+[END OF LOOP]
+Step 5: EXIT
+\end{lstlisting}
+
+\subsubsection{Insertion}
+\begin{lstlisting}[style=mystyle]
+(AT BEGINNING)
+    Step 1: IF AVAIL = NULL
+    Write OVERFLOW
+    Go to Step 7
+    [END OF IF]
+    Step 2: SET NEW_NODE = AVAIL
+    Step 3: SET AVAIL = AVAIL -> NEXT
+    Step 4: SET NEW_NODE -> DATA = VAL
+    Step 5: SET NEW_NODE -> NEXT = HEAD
+    Step 6: SET HEAD = NEW_NODE
+    Step 7: EXIT
+
+(AT END)
+    Step 1: IF AVAIL = NULL
+    Write OVERFLOW
+    Go to Step 10
+    [END OF IF]
+    Step 2: SET NEW_NODE = AVAIL
+    Step 3: SET AVAIL = AVAIL -> NEXT
+    Step 4: SET NEW_NODE -> DATA = VAL
+    Step 5: SET NEW_NODE -> NEXT = NULL
+    Step 6: SET PTR = HEAD
+    Step 7: Repeat Step 8 while PTR -> NEXT != NULL
+    Step 8: SET PTR = PTR -> NEXT
+    [END OF LOOP]
+    Step 9: SET PTR -> NEXT = NEW_NODE
+    Step 10: EXIT
+
+(AFTER A GIVEN NODE)
+    Step 1: IF AVAIL = NULL
+    Write OVERFLOW
+    Go to Step 12
+    [END OF IF]
+    Step 2: SET NEW_NODE = AVAIL
+    Step 3: SET AVAIL = AVAIL -> NEXT
+    Step 4: SET NEW_NODE -> DATA = VAL
+    Step 5: SET PTR = HEAD
+    Step 6: SET PREPTR = PTR
+    Step 7: Repeat Steps 8 and 9 while PREPTR -> DATA != NUM
+    Step 8: SET PREPTR = PTR
+    Step 9: SET PTR = PTR -> NEXT
+    [END OF LOOP]
+    Step 1 : PREPTR -> NEXT = NEW_NODE
+    Step 11: SET NEW_NODE -> NEXT = PTR
+    Step 12: EXIT
+\end{lstlisting}
+
+\subsubsection{Deletion}
+\begin{lstlisting}[style=mystyle]
+(AT BEGINNING)
+    Step 1: IF HEAD = NULL
+    Write UNDERFLOW
+    Go to Step 5
+    [END OF IF]
+    Step 2: SET PTR = HEAD
+    Step 3: SET HEAD = HEAD -> NEXT
+    Step 4: FREE PTR
+    Step 5: EXIT
+    (AT END)
+    Step 1: IF HEAD = NULL
+    Write UNDERFLOW
+    Go to Step 8
+    [END OF IF]
+    Step 2: SET PTR = HEAD
+    Step 3: Repeat Steps 4 and 5 while PTR -> NEXT != NULL
+    Step 4: SET PREPTR = PTR
+    Step 5: SET PTR = PTR -> NEXT
+    [END OF LOOP]
+    Step 6: SET PREPTR -> NEXT = NULL
+    Step 7: FREE PTR
+    Step 8: EXIT
+
+(AFTER A NODE)
+    Step 1: IF HEAD = NULL
+    Write UNDERFLOW
+    Go to Step 10
+    [END OF IF]
+    Step 2: SET PTR = HEAD
+    Step 3: SET PREPTR = PTR
+    Step 4: Repeat Steps 5 and 6 while PREPTR -> DATA != NUM
+    Step 5: SET PREPTR = PTR
+    Step 6: SET PTR = PTR -> NEXT
+    [END OF LOOP]
+    Step 7: SET TEMP = PTR
+    Step 8: SET PREPTR -> NEXT = PTR -> NEXT
+    Step 9: FREE TEMP
+    Step 10 : EXIT
+\end{lstlisting}
+
+\subsection{Code}
+\inputminted[]{c}{../../Code/linkedListOperations.c}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+\end{lstlisting}
+
+\pagebreak

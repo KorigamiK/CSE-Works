@@ -6,6 +6,15 @@ Write a program for Inorder Traversal of Binary Search Tree.
 
 \subsection{Algorithm}
 \begin{lstlisting}[style=mystyle]
+Traverse the left sub-tree in in-order
+Visit the root
+Traverse the right sub-tree in in-order
+Repeat Steps 2 to 4 while TREE != NULL
+INORDER(TREE -> LEFT)
+Write TREE -> DATA
+INORDER(TREE->RIGHT)
+[END OF LOOP]
+END
 \end{lstlisting}
 
 \subsection{Code}
@@ -13,6 +22,7 @@ Write a program for Inorder Traversal of Binary Search Tree.
 
 \subsection{Output}
 \begin{lstlisting}[style=output]
+    10 30 40 60 70 90
 \end{lstlisting}
 
 \pagebreak
