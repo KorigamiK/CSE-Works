@@ -3,44 +3,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 40
-
 struct queue
 {
     int items[SIZE];
     int front;
     int rear;
 };
-
 struct queue *createQueue();
 void enqueue(struct queue *q, int);
 int dequeue(struct queue *q);
 void display(struct queue *q);
 int isEmpty(struct queue *q);
 void printQueue(struct queue *q);
-
 struct node
 {
     int vertex;
     struct node *next;
 };
-
 struct node *createNode(int);
-
 struct Graph
 {
     int numVertices;
     struct node **adjLists;
     int *visited;
 };
-
 // BFS algorithm
 void bfs(struct Graph *graph, int startVertex)
 {
     struct queue *q = createQueue();
-
     graph->visited[startVertex] = 1;
     enqueue(q, startVertex);
-
     while (!isEmpty(q))
     {
         printQueue(q);
@@ -87,7 +79,6 @@ struct Graph *createGraph(int vertices)
         graph->adjLists[i] = NULL;
         graph->visited[i] = 0;
     }
-
     return graph;
 }
 
@@ -104,7 +95,6 @@ void addEdge(struct Graph *graph, int src, int dest)
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
 }
-
 // Create a queue
 struct queue *createQueue()
 {
@@ -113,14 +103,10 @@ struct queue *createQueue()
     q->rear = -1;
     return q;
 }
-
 // Check if the queue is empty
 int isEmpty(struct queue *q)
 {
-    if (q->rear == -1)
-        return 1;
-    else
-        return 0;
+    return q->rear == -1;
 }
 
 // Adding elements into queue
@@ -136,7 +122,6 @@ void enqueue(struct queue *q, int value)
         q->items[q->rear] = value;
     }
 }
-
 // Removing elements from queue
 int dequeue(struct queue *q)
 {
@@ -158,23 +143,17 @@ int dequeue(struct queue *q)
     }
     return item;
 }
-
 // Print the queue
 void printQueue(struct queue *q)
 {
     int i = q->front;
-
     if (isEmpty(q))
-    {
         printf("Queue is empty");
-    }
     else
     {
         printf("\nQueue contains \n");
         for (i = q->front; i < q->rear + 1; i++)
-        {
             printf("%d ", q->items[i]);
-        }
     }
 }
 
