@@ -1,12 +1,13 @@
-# CS-Assignment-LaTeX-Template
+# CSE-Works.
 
-A template for Computer Science assignments
+A place for Computer Science Engineering curriculum works.
 
-Template 2 is functional (also more automated) but deprecated since Overleaf and VSCode does not support Table of Content for custom sections.
+Most of the documents are written in LaTeX using the VSCode and sometimes the NeoVim editor.
 
-## Template includes
+## The repository includes
 
-- Q1: Written response
-- Q2: Images
-- Q3: PseudoCode
-- Q4: Code
+- PseudoCode
+- Code
+- PDF files
+- Documentation for some works
+
