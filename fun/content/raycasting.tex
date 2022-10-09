@@ -74,9 +74,32 @@ The high level architecture of the engine looks something like this:\\[1cm]
 
 \section*{Raycasting}
 
+What actually distinguishes my project from any other implementation that you may find on the web is the fact that instead of dividing the whole world into square grids, it defines all the objects and texture rendering using their actual coordinates.
+
+Looking back, using the 2D grid approach while being a lot easier to implement, it's also quite a bit more efficient and accurate.
+
+Having said that, it also restricts a lot of what can be actually created in the game.
+
+
 The biggest leap of faith I took for this engine was to create the raycasting logic. So, here's how raycasting actually works.
 
-\input{images/tikz/circle.tex}
+We first need to define these terms:
+
+\begin{itemize}
+
+    \item \underline{\textbf{Player direction $\alpha$ :}} The direction that the player is currently facing.
+    \item \underline{\textbf{Horizontal field of view $\Omega$ :}} The visible field of view the player sees in the horizontal direction. I assumed this to be, 100°.
+    \item \underline{\textbf{Vertical field of view:}} This gives an idea of how high or low can the person see. I assume this to be, 60°.
+    \item \underline{\textbf{Number of rays:}} This is the number of rays that we cast from the player's position. You can set this number a lot of ways, and how high you set this will determine how accurate the raycasting will be.
+
+\end{itemize}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{./images/raycasting.png}
+    \caption{Raycasting}
+    \label{fig:rays}
+\end{figure}
 
 \newpage
 
