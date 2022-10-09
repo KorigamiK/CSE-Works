@@ -1,14 +1,43 @@
+\makeatletter
+\def\logosmaller#1{%
+    \hbox{\sbox\z@ T%
+        \vbox to\ht\z@{\hbox{\check@mathfonts
+                \fontsize\sf@size\z@
+                \math@fontsfalse\selectfont #1}\vss}}}
+
+\newcommand\lecture{%
+    L\kern-.2em%
+    \logosmaller{E}\kern-.1em%
+    C\kern-.2em%
+    \raise0.5ex\hbox{T}\kern-.23em%
+    \hbox{U}\kern-.1em%
+    \lower0.1ex\logosmaller{R}\kern-.1em%
+    E\@}
+
+\newcommand\korigamik{%
+    K\kern-.1em%
+    o\kern-.1em%
+    r\kern-.1em%
+    i\kern-.1em%
+    g\kern-.1em%
+    m\kern-.1em%
+    i\kern-.1em%
+    K\@}
+
+\newcommand\HUGE{\@setfontsize\Huge{38}{47}}
+
 \begin{titlepage}
     \center
-    \includegraphics[scale=0.4]{images/logo.png}
+    \includegraphics[scale=.15]{images/left.png}
+    \textsc{\HUGE \color{purple} \raise1.8ex \hbox{\korigamik}}
+    \includegraphics[scale=.15]{images/right.png}
     \vspace{1cm}
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \center
-    \textsc{\LARGE Indian Institute of Engineering\\[0.2cm]
-        Science And Technology}\\[0.25cm]
-    % \textsc{\Large \\ Dept. of Computer Science and Engineering} \\
-    % [1.0cm] {\large Last updated on \today} \\
-    [0.5cm] \textsc{\large <Subtitle text>}\\[0.4cm]
+
+    \textsc{\LARGE Science And Technology}\\ [1.0cm]
+    {\large Last updated on \today} \\
+    \textsc{\large <Subtitle text>}\\[0.4cm]
     \HRule \\[0.4cm]
     { \Large \bfseries <title>}\\[0.2cm]
     \HRule \\[0.5cm]
@@ -34,6 +63,7 @@
 
     \end{center}
     \begin{center}
+        \vfill
         \small\textsc{Copyright \textcopyright\, KorigamiK}\\
         \small\textsc{All Rights Reserved.}
     \end{center}

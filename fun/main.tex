@@ -6,11 +6,11 @@
 
 \setlength {\marginparwidth }{2cm}
 \usepackage[colorinlistoftodos]{todonotes}
-\usepackage{tikz}
+
 \usepackage{pdfpages}
 \usepackage{dirtytalk}
 \usepackage{hyperref} 
-\usetikzlibrary{shapes.geometric, arrows}
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{multirow}
@@ -38,10 +38,25 @@
 
 \usepackage{lmodern}
 
-% Bibliography Style
 \usepackage[square,numbers]{natbib}
-%\bibliographystyle{abbrvnat}
-%\bibliographystyle{unsrt}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,
+                calc, chains,
+                decorations.pathreplacing,%
+                positioning,
+                shapes}
+\definecolor{blue1}{RGB}{84,141,212}
+\definecolor{blue2}{RGB}{142,180,227}
+\definecolor{yellow1}{RGB}{255,229,153}
+\definecolor{orange1}{RGB}{255,153,0}
+\definecolor{gray1}{RGB}{127,127,127}
+
+\definecolor{gray2}{RGB}{217,217,217}
+
+\usepackage{mathrsfs}
+\usepackage{pgfplots}
+
 \bibliographystyle{IEEEtran}
 
 \def\skipspace{\vskip1em}
@@ -59,10 +74,13 @@
 \newpage
 \listoftables
 \newpage
+
 \chapter{Introduction}
-\input{content/chap_1}
-\chapter{Chapter 2 Name}
-\input{content/chap_2}
+\input{content/introduction.tex}
+
+\chapter{Raycasting Adventures}
+\input{content/raycasting.tex}
+
 \chapter{Acknowledgement}
 \input{content/acknowledgement}
 
@@ -71,7 +89,7 @@
 \bibliography{mybibliograph}
 %\input{references}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{appendix}
 \end{document}
 

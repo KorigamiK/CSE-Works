@@ -1,0 +1,52 @@
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{arrows}
+\definecolor{zzccff}{rgb}{0.6,0.8,1}
+\definecolor{ffxfqq}{rgb}{1,0.4980392156862745,0}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+
+\begin{figure}[!ht]
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+        \begin{axis}[
+                x=1cm,y=1cm,
+                axis lines=middle,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xmin=-6,
+                xmax=6,
+                ymin=-5.784753363228701,
+                ymax=5.784753363228701,
+                xtick={-6,-5,...,6},
+                ytick={-5,-4,...,5},]
+            \clip(-6,-5.784753363228701) rectangle (6,5.784753363228701);
+            \draw [line width=2pt,color=cqcqcq] (0,0) circle (4.273313221017305cm);
+            \draw [line width=2pt] (-1.2820485550381981,4.744542239219644)-- (5.897465894579815,-0.38748105254433196);
+            \draw [line width=2pt] (0,0)-- (-0.53013179963603,4.207061002950688);
+            \draw [line width=2pt,color=ffxfqq] (-3.4299093277961026,2.4618547396848856)-- (3.7496051218219177,-2.6701685520790903);
+            \draw [line width=2pt,color=cqcqcq] (-0.53013179963603,4.207061002950688)-- (-2.3636944972769713,1.699708583054546);
+            \draw [->,line width=2pt,color=zzccff] (0,0) -- (3.4039247964699375,4.270028749218307);
+            \begin{scriptsize}
+                \draw [fill=ududff] (0,0) circle (2.5pt);
+                \draw[color=ududff] (0.15246636771300448,0.3766816143497759) node {$A$};
+                \draw [fill=ududff] (4.023331867972484,1.440141161511029) circle (2.5pt);
+                \draw[color=ududff] (4.170403587443946,1.8295964125560542) node {$B$};
+                \draw [fill=ududff] (-1.2820485550381981,4.744542239219644) circle (2.5pt);
+                \draw[color=ududff] (-1.1390134529147982,5.130044843049328) node {$C$};
+                \draw [fill=ududff] (5.897465894579815,-0.38748105254433196) circle (2.5pt);
+                \draw[color=ududff] (5.713004484304933,0) node {$D$};
+                \draw [fill=xdxdff] (-0.53013179963603,4.207061002950688) circle (2.5pt);
+                \draw[color=xdxdff] (-0.38565022421524664,4.591928251121077) node {$E$};
+                \draw [fill=ududff] (-3.4299093277961026,2.4618547396848856) circle (2.5pt);
+                \draw[color=ududff] (-3.2376681614349776,2.9058295964125564) node {$C_{1}$};
+                \draw [fill=ududff] (3.7496051218219177,-2.6701685520790903) circle (2.5pt);
+                \draw[color=ududff] (3.9551569506726456,-2.224215246636772) node {$D_{1}$};
+                \draw [fill=xdxdff] (-2.3636944972769713,1.699708583054546) circle (2.5pt);
+                \draw[color=xdxdff] (-2.2152466367713,2.080717488789238) node {$F$};
+                \draw [fill=ududff] (3.4039247964699375,4.270028749218307) circle (2.5pt);
+                \draw[color=ududff] (3.5426008968609866,4.663677130044844) node {$G$};
+            \end{scriptsize}
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:circle}
+\end{figure}
