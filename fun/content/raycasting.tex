@@ -88,11 +88,18 @@ We first need to define these terms:
 \begin{itemize}
 
     \item \underline{\textbf{Player direction $\alpha$ :}} The direction that the player is currently facing.
+		\item \underline{\textbf{Maximum view distance $d$ :}} The position of the player in the world.
     \item \underline{\textbf{Horizontal field of view $\Omega$ :}} The visible field of view the player sees in the horizontal direction. I assumed this to be, 100°.
-    \item \underline{\textbf{Vertical field of view:}} This gives an idea of how high or low can the person see. I assume this to be, 60°.
-    \item \underline{\textbf{Number of rays:}} This is the number of rays that we cast from the player's position. You can set this number a lot of ways, and how high you set this will determine how accurate the raycasting will be.
+    \item \underline{\textbf{Vertical field of view :}} This gives an idea of how high or low can the person see. I assume this to be, 60°.
+    \item \underline{\textbf{Number of rays :}} This is the number of rays that we cast from the player's position. You can set this number a lot of ways, and how high you set this will determine how accurate the raycasting will be.
 
 \end{itemize}
+
+\pagebreak
+
+Now we are ready to tackle the actual casting of rays. What our aim is to cast a ray from the player's position in the direction of the player's direction $\alpha$ and then check if it intersects with any of the walls in the map. If it does, then we need to calculate the distance between the player and the wall and then draw a slice of the player's view corresponding to that ray.
+
+So, consider this diagram of the palyer's situation:
 
 \begin{figure}[!ht]
     \centering
@@ -100,6 +107,36 @@ We first need to define these terms:
     \caption{Raycasting}
     \label{fig:rays}
 \end{figure}
+
+This circle corresponds to the player's maximum view distance ($d$).
+
+It should be noted that half of the casted rays would be on the left side of the player's field of view ($\frac{\Omega}{2}$) and the other half would be on the right side. 
+
+Now, we can define the angle between each ray as:
+
+\begin{equation}
+	\delta = \frac{\text{Vertical field of view}}{\text{Rays casted}}
+\end{equation}
+
+We are going to construct the view of the player by drawing a slice of the view for each ray. The rays would be equally spaced (suspending the angle $\gamma$ at the player) starting from point $O$ till the $X_{max}$.
+
+We'll calculate $X_{max}$ (distance taken from $O$) by using the following formula:
+
+\begin{equation}
+	X_{max} = 2 d \sin\frac{\Omega}{2}
+\end{equation}
+
+So, the distance $X$ for any ray at angle $\beta$ would be:
+
+\begin{equation}
+	X = d \cos\frac{\Omega}{2} \tan\beta
+\end{equation}
+
+Now, we can calculate the width of the slice for each ray as:
+
+\begin{equation}
+	W = \frac{X_{max}}{2} + d \cos\frac{\Omega}{2} (\tan\beta - \tan(\beta - \delta))
+\end{equation}
 
 \newpage
 
