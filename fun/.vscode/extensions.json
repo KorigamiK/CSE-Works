@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "valentjn.vscode-ltex"
+        "valentjn.vscode-ltex",
+        "james-yu.latex-workshop",
+        "tecosaur.latex-utilities"
     ]
 }

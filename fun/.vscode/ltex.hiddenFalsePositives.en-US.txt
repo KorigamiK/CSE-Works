@@ -1,1 +1,2 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qmonthyeardate [],\\E$"}
+{"rule":"CASTED","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QVertical field of view \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QRays casted\\E$"}
