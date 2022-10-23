@@ -7,3 +7,6 @@ Wolfenstein
 DirectMedia
 raycaster
 Raycaster
+fermi
+Eq
+compat
