@@ -1,7 +1,11 @@
 \justify
 \skipspace
 
+\chapter{Raycasting Adventures}
+
 This is going to be more of a summary and some implementation details of my first ever experience with computer graphics and making games.
+
+You can find the \href{https://korigamik.itch.io/untitled-psp}{itch-io page} with all the instructions and links to download and play the game (maybe even give me a follow)
 
 Two weeks ago, not knowing anything about computer graphics and game development, I embarked on a journey down the rabbit hole of creating one of the pioneering games of video game history, such as the OG \textit{Doom} and \textit{Wolfenstein 3D}.
 
@@ -25,10 +29,7 @@ I'll talk about the game architecture in this section.
 
 The engine was written in C++ and then compiled using the \textit{CMake} build system, which enables me to go completely cross-platform.
 
-The high level architecture of the engine
-looks something like this:\\[1cm]
-
-
+The high level architecture of the engine looks something like:\\[1cm]
 \begin{tikzpicture}[
     node distance = 8mm and 12mm,
     start chain = A going below,
@@ -48,30 +49,37 @@ looks something like this:\\[1cm]
     M/.style = {base, fill=#1,
             tape,
             tape bend top=none, tape bend height=2mm, tape bend bottom=in and out},
-    N/.style = {base, rounded corners, fill=#1}
-    ]
-    % main branch
-    \begin{scope}[nodes={on chain=A, join=by arr},
-            N/.default=blue2]
-        \node [N=blue1]     {Hi};                   % A-1
-        \node [N=orange1]   {Hello};    % A-2
-        \node [N]   {Hola};
-        \node [N]   {He};
+    N/.style = {base, rounded corners, fill=#1}]
 
+    % main branch
+    \begin{scope}[nodes={on chain=A,}, N/.default=blue2]
+        \node [N=orange1]     {App};  % A-1
+        \node [N]   {Event Controller};    % A-2
+        \node [N]   {State Controller};
     \end{scope}
+
     % nodes on the left side of the main branch
-    \node [N=gray1,
-        left=of A-1]     (B-1)   {ACTEURS};
-    \coordinate (aux1) at ($(A-3.south west)!0.5!(A-4.north west)$);
-    \node [N=gray2,
-        left=of aux1]     (B-2)   {Client};
+    \node [N=orange1,left=of A-1]     (B-1)   {Controllers};
+    \node [N=gray2,left=of A-1]     (B-1)   {Font Controller};
+    \node [N=gray2,left=of A-2] (B-2) {Audio Controller};
+    \node [N=gray2,left=of A-3] (B-3) {Texture Controller};
+    % \coordinate (aux1) at ($(A-3.south west)!0.5!(A-4.north west)$);
+    % \node [N=gray2,
+    %     left=of aux1]     (B-4)   {Client};
 
     % nodes on the right side of thr main branch
-    \begin{scope}[M/.default=yellow1]
-        \node [M, right=of A-2, text width=1cm] (D-1) {C++};
+
+    \begin{scope}[N/.default=yellow1]
+        \node [N, right=of A-1, text width=1.1cm] (D-2) {Map};
+        \node [N, right=of A-2, text width=1.2cm] (D-3) {Player View};
+        \node [N, right=of A-3, text width=1.2cm] (D-4) {Player};
     \end{scope}
+
 \end{tikzpicture}
 
+
+
+I would've gone more into the design but TikZ is such a huge pain to learn.  Though, I might come back to this in the future.
 
 \section*{Raycasting}
 
@@ -138,6 +146,73 @@ Now, we can calculate the width of the slice ($W$) for each ray as:
 \begin{equation}
     W = \frac{X_{max}}{2} + d \cos\frac{\Omega}{2} (\tan\beta - \tan(\beta - \delta))
 \end{equation}
+
+But, we cannot calculate the vertical height of the slice by using the distance of the ray's end point from the player ($\text{Ray Length}$) directly.
+
+This is the exact cause of the fish eye effect that you might have seen from some cameras that looks very alien to your eyes. It looks something like
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{./images/fish eye.png}
+    \caption{Fish-eye effect}
+    \label{fig:fish-eye}
+\end{figure}
+
+We can correct for the fish eye effect by taking the length of the ray from the plane of the camera.
+
+\begin{equation}
+    \text{Camera Distance} = \text{Ray Length} \cdot  cos(\beta - \alpha)
+\end{equation}
+
+Thus, we calculate the height of the slice based on this:
+
+\begin{equation}
+    \text{Height} = \text{Screen Height} \cdot \frac{ \text{Wall Height}}{\text{Camera Distance}}
+\end{equation}
+
+Nice! The fish-eye effect is no more.
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{./images/no-fish-eye.png}
+    \caption{Corrected fish-eye effect}
+    \label{fig:fish-eye-corrected}
+\end{figure}
+
+Another thing that we can calculate is the brightness of an individual slice:
+
+\begin{equation}
+    \text{Brightness} = \text{Max brightness} \cdot (1 - \frac{\text{Camera Distance}}{d})
+\end{equation}
+
+This means that farther objects will appear darker than when they're closer. You could probably play around here and find a way to do fog or mist, but I'll leave that up to you.
+
+The last thing left for us to do (at least on this blog) is to figure out a way to map the image textures onto the actual walls.
+
+The method is pretty simple,
+
+\begin{itemize}
+    \item The width and height of the textures remain the same.
+    \item The start of the texture can be calculated by taking into account the distance of the ray along the line.
+\end{itemize}
+
+\begin{equation}
+    \text{Texture X} = \text{Ray End Point} \cdot \text{Wall Start point} \; \% \; \text{Texture Width}
+\end{equation}
+
+The remainder operator will repeat the texture when the length of the wall is greater than the texture itself.
+
+\subsubsection{Conclusion}
+
+That's it, Congrats, you made it to the end. The Raycasting is works, and you're now a game developer.
+\begin{align*}
+    \text{Two  birds with one stone, am I right?}
+\end{align*}
+
+I hope you enjoyed the journey with me as much as I did making and writing this. Maybe you'll even feel inclined to contribute and fix the inevitably many bugs I have \href{https://github.com//korigamik/untitledpsp}{in my code}.
+
+Thank you Kueeing! (king + queen let's \href{https://www.urbandictionary.com/define.php?term=kueeing}{make this go main stream})
 
 \newpage
 

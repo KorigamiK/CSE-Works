@@ -1,3 +1,4 @@
 {
-    "svg.preview.background": "black"
+    "svg.preview.background": "black",
+    "latex-workshop.latexindent.path": "C:/msys64/usr/bin/latexindent.exe"
 }
