@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
+\usepackage[
+    hyperref = true,      	% Link to online documents
+    backend  = bibtex,      % Use bibtex instead of biber
+    sorting  = nyt,       	% Sorts by (name, year, title)
+    style  = alphabetic 	% Citations look like [Har77]
+]{biblatex}
+\addbibresource{report.bib}
+
+\def\univname{Netaji Subhas University of Technology}
+\def\coursenum{CS 123}
+\def\coursename{Cool Subject}
+\def\professor{Cool Professor}
+\def\student{Cool Student}
+\def\semesteryear{Autumn 2023}
+\def\imagename{res/NSUT.png}		    % Replace with University Seal
+\def\scalesize{0.60}					% Scale Logo Size 
+
+\input{style.tex}
+
+\begin{document}
+
+\coverpage
+
+
+\end{document}

@@ -1,0 +1,29 @@
+\usepackage{
+	bookmark,        	% Replaces (and loads) hyperref
+	xcolor,			    % Define Colors
+	graphicx,			% Graphics
+}
+
+% Define Colors
+\definecolor{UnivColor}{RGB}{212,69,0}
+
+% Title Page
+\newcommand{\coverpage}{
+	\thispagestyle{empty}
+	\vspace*{.25cm}
+	\begin{center}
+		\begin{tabular}{cc}
+			\raisebox{-.4\height}{\includegraphics[scale=\scalesize]{\imagename}} & {\color{UnivColor} {\LARGE \univname}} \\
+		\end{tabular}
+	\end{center}
+
+	\vspace{3in}
+
+	{\color{UnivColor} \Huge\noindent\coursenum \par\vspace{0.2cm}\noindent\coursename \par\vspace{0.1cm} \noindent\rule{0.65\textwidth}{0.05cm}\par\vspace{0.2cm}}
+
+	{\color{UnivColor} \large \noindent Professor: \professor \par\noindent Submitted By: \student}
+
+	\vfill
+	\begin{center} {\huge \color{UnivColor} \semesteryear} \end{center}
+
+}
