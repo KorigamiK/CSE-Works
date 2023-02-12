@@ -1,0 +1,80 @@
+\usepackage{tikz}
+\usepackage{anyfontsize}
+\usepackage{geometry}
+
+\usetikzlibrary{positioning,calc}
+
+
+%%% Mandatory article metadata %%%
+\title{Example of a \PracTeX\ Journal article}
+\author{Will Robertson}
+\noabstract
+
+%%% Optional article metadata %%%
+\email{will@guerilla.net.au}
+%\hyperlinkemail
+\website{http://www.mecheng.adelaide.edu.au/~will/}
+\address{Adelaide, Australia}
+% Please adjust the copyright statement to your needs:  
+\license{Copyright \textcopyright\ 2006 Will Robertson.\\
+    Permission is granted to distribute verbatim or modified\\
+    copies of this document provided this notice remains intact.}
+%%%
+
+%%% Defining more metadata:
+\addinfospace{1ex}
+\addinfo[\color{blue}\scshape]{Hobby}
+\hobby{Sleeping in.}
+%%%
+
+%%% Changing the hyperlink colour:
+\definecolor{linkcolour}{rgb}{0.7,0.2,0.2}
+%%%
+
+\makeatletter
+\renewcommand{\maketitle}{%
+
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \begin{center}
+            \begin{flushright}
+                \includegraphics[scale=0.6]{./res/NSUT.png}
+                \Large {\\ \textbf{Netaji Subhas University \\ of Technology}}
+            \end{flushright}
+        \end{center}
+        \vspace*{1.5cm}
+        \noindent\begin{tikzpicture}
+            \node[
+                text width=\textwidth-2cm,
+                align=left,
+                font=\fontsize{30}{30}\selectfont\scshape,
+                inner xsep=.5cm
+            ] (x) {\@title};
+            \draw (x.north west) node[
+                draw,
+                above right=1cm and 0pt,
+                font=\LARGE,
+                inner sep=.2cm
+            ] (y) {\textsc{\@author}};
+            \draw (y.south west)--($(x.south west)+(0,-1)$);
+        \end{tikzpicture}
+
+        \vspace*{2cm}
+        \begin{center}
+            \begin{tabular}[h]{r l}
+                Name     & \textbf{Will Robertson}       \\
+                Roll No  & \textbf{\textit{2021UCI8036}} \\
+                Semester & \textbf{4th}                  \\
+                Course   & \textbf{Compiler Design}      \\
+            \end{tabular}
+        \end{center}
+        \vfill
+
+        \begin{center}
+            \textsc{\large Department of Computer Science \& Engineering}\\[0.4cm]
+            {\large \today}
+        \end{center}
+
+    \end{titlepage}
+}
+\makeatother
