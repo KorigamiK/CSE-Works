@@ -4,18 +4,22 @@
 \subsection{Process Creation}
 \label{sec:process-creation}
 
-\subsubsection{The fork() System Call}
+\subsubsection{The \texttt{fork()} System Call}
 \label{sec:the-fork-system-call}
 
-A process is created by the fork() system call.
-The fork() system call creates a child process that is an exact copy of the parent process.
+A process is created by the \texttt{fork()} system call.
+The \texttt{fork()} system call creates a child process that is an exact copy of the parent process.
 
-The fork() system call returns twice.
+\inputminted[linenos,autogobble]{c}{code/fork.c}
+
+The \texttt{fork()} system call returns twice.
 The first time it returns the process ID of the child process to the parent process.
 The second time it returns 0 to the child process.
 
-\subsubsection{The exec() System Call}
-\label{sec:the-exec-system-call}
+\begin{lstlisting}[style=output]
+Parent process pid: 96732
+Child process pid: 96733    
+\end{lstlisting}
 
 \subsection{Process Termination}
 \label{sec:process-termination}
@@ -23,6 +27,10 @@ The second time it returns 0 to the child process.
 \subsubsection{The exit() System Call}
 \label{sec:the-exit-system-call}
 
-\subsubsection{The wait() System Call}
-\label{sec:the-wait-system-call}
+The exit() system call terminates the calling process.
+The exit() system call takes an integer argument
+that is returned to the parent process as the child's exit status.
+
+\inputminted[linenos,autogobble]{c}{code/exit.c}
+
 

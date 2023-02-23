@@ -1,0 +1,38 @@
+\section{CPU Scheduling: FCFS}
+\label{sec:cpu-scheduling}
+
+Implementation of CPU scheduling in a first come first serve (FCFS) manner.
+
+\inputminted[linenos,autogobble]{c}{code/fcfs.c}
+
+The scheduler selects the process that has been waiting the longest.
+
+\begin{lstlisting}[style=output]
+Processes  Burst Time   Waiting Time    Turn Around Time
+1	   10		0		10
+2	   5		10		15
+3	   8		15		23
+Average waiting time = 8.333333
+Average turn around time = 16.000000
+\end{lstlisting}
+
+\section{CPU Scheduling: Priority}
+\label{sec:cpu-scheduling-priority}
+
+Implementation of CPU scheduling using a ``priority'' based approach using assigned ranks/priority algorithms.
+
+A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
+
+\inputminted[linenos,autogobble]{c}{code/priority.c}
+
+\begin{lstlisting}[style=output]
+Order in which processes gets executed
+2 3 4 1 
+Process         BurstTime      WaitingTime     TurnAroundTime
+2		19		0		19
+3		27		19		46
+4		25		46		71
+1		100		71		171
+Average waiting time = 34.000000
+Average turn around time = 76.750000
+\end{lstlisting}

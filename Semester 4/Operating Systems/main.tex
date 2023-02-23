@@ -1,5 +1,9 @@
 \documentclass{korigamik}
 
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{listings}
+
 \title{Operating Systems}
 \titlelabel{Lab Report}
 \author{Kushagra Lakhwani}
@@ -7,14 +11,28 @@
 \semester{4th}
 \logoimage{res/NSUT.png}{0.6}{Netaji Subhas University \\ of Technology}
 
+\colorlet{mycoolgray}{gray!40}
+\lstdefinestyle{output}{
+	numbers=none, % where to put the line-numbers
+	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+	backgroundcolor=\color{darkgray},
+	basicstyle=\ttfamily\color{white},
+	captionpos=b, % sets the caption-position to bottom
+	breaklines=true, % sets automatic line breaking
+	breakatwhitespace=false,
+}
+
 \begin{document}
 \maketitle
 \newpage
+
+\input{content/abstract.tex}
 
 \thispagestyle{empty}
 \tableofcontents
 \newpage
 
 \input{content/processes.tex}
+\input{content/scheduling.tex}
 
 \end{document}
