@@ -1,0 +1,47 @@
+\makeatletter
+\renewcommand{\maketitle}{%
+	\begin{titlepage}
+		\thispagestyle{empty}
+		\begin{center}
+			\begin{flushright}
+				\includegraphics[scale=0.6]{./res/NSUT.png}
+				\Large {\\ \textbf{Netaji Subhas University \\ of Technology}}
+			\end{flushright}
+		\end{center}
+		\vspace*{1.5cm}
+
+		\noindent\begin{tikzpicture}
+			\node[
+				text width=\textwidth-2cm,
+				align=left,
+				font=\fontsize{30}{30}\selectfont\scshape,
+				inner xsep=.5cm
+			] (x) {\@title};
+			\draw (x.north west) node[
+				draw,
+				above right=1cm and 0pt,
+				font=\LARGE,
+				inner sep=.2cm
+			] (y) {\textsc{Lab Report}};
+			\draw (y.south west)--($(x.south west)+(0,-1)$);
+		\end{tikzpicture}
+
+		\vspace*{2cm}
+		\begin{center}
+			\begin{tabular}[h]{r | l}
+				Name     & \textbf{\@author}             \\
+				Roll No  & \textbf{\textit{2021UCI8036}} \\
+				Semester & \textbf{4th}                  \\
+				Course   & \textbf{\textit{CICPC09}}     \\
+			\end{tabular}
+		\end{center}
+		\vfill
+
+		\begin{center}
+			\textsc{\large Department of Computer Science \& Engineering}\\[0.4cm]
+			{\large \today}
+		\end{center}
+
+	\end{titlepage}
+}
+\makeatother
