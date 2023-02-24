@@ -1,0 +1,108 @@
+\section{Producer-Consumer Problem}
+\label{sec:producer_consumer}
+
+Implementation of the producer-consumer problem using semaphores.
+
+\subsection{Problem Statement}
+
+A producer-consumer problem is a classic synchronization problem.
+
+The problem describes two processes, the producer and the consumer, who share a common, fixed-size buffer used as a queue.
+The producer's job is to generate data, put it into the buffer, and start again. At the same time, the consumer is consuming the data (i.e., removing it from the buffer), one piece at a time.
+
+The problem is to make sure that the producer won't try to add data into the buffer if it's full and that the consumer won't try to remove data from an empty buffer.
+
+\begin{itemize}
+    \item The producer is not allowed to add data into the buffer if it's full.
+    \item Data can only be consumed by the consumer if the memory buffer is not empty.
+    \item Accessing the buffer is mutually exclusive.
+\end{itemize}
+
+\pagebreak
+
+\subsection{Algorithm}
+
+\begin{algorithm}
+    \caption{Producer-Consumer Problem}
+    \label{alg:producer_consumer}
+    \begin{algorithmic}[1]
+        \State \textbf{Input:} $n$ producers and $m$ consumers
+        \State \textbf{Output:} The order in which the producers and consumers are executed
+        \State $i \gets 0$ \Comment{current producer}
+        \State $j \gets 0$ \Comment{current consumer}
+        \State $p \gets \{p_1, \dots, p_n\}$ \Comment{producers}
+        \State $c \gets \{c_1, \dots, c_m\}$ \Comment{consumers}
+        \State $buffer \gets \emptyset$ \Comment{buffer}
+        \State $mutex \gets 1$ \Comment{mutex}
+        \State $empty \gets n$ \Comment{empty slots}
+        \State $full \gets 0$ \Comment{occupied slots}
+        \While{$i < n$ or $j < m$}
+            \If{$i < n$ and $empty > 0$}
+                \State $p_i$ \Comment{produce}
+                \State $i \gets i + 1$
+            \EndIf
+            \If{$j < m$ and $full > 0$}
+                \State $c_j$ \Comment{consume}
+                \State $j \gets j + 1$
+            \EndIf
+        \EndWhile
+        \State \textbf{Return:} $buffer$
+    \end{algorithmic}
+\end{algorithm}
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/producer_consumer.c}
+
+\begin{lstlisting}[style=output]
+Producer 2: Insert Item 1804289383 at 0
+Producer 1: Insert Item 846930886 at 1
+Producer 2: Insert Item 1681692777 at 2
+Producer 1: Insert Item 1714636915 at 3
+Producer 1: Insert Item 424238335 at 4
+Producer 2: Insert Item 1957747793 at 3
+Producer 1: Insert Item 719885386 at 0
+Producer 2: Insert Item 1649760492 at 1
+Producer 2: Insert Item 1189641421 at 3
+Producer 3: Insert Item 1025202362 at 4
+Producer 3: Insert Item 1350490027 at 0
+Producer 3: Insert Item 783368690 at 1
+Producer 3: Insert Item 1102520059 at 2
+Producer 3: Insert Item 2044897763 at 3
+Producer 1: Insert Item 596516649 at 2
+Producer 4: Insert Item 1967513926 at 0
+Producer 4: Insert Item 1365180540 at 1
+Producer 4: Insert Item 1540383426 at 2
+Producer 4: Insert Item 304089172 at 3
+Producer 4: Insert Item 1303455736 at 4
+Producer 5: Insert Item 35005211 at 0
+Producer 5: Insert Item 521595368 at 1
+Producer 5: Insert Item 294702567 at 2
+Producer 5: Insert Item 1726956429 at 3
+Producer 5: Insert Item 336465782 at 4
+Consumer 1: Remove Item 35005211 from 0
+Consumer 1: Remove Item 521595368 from 1
+Consumer 1: Remove Item 294702567 from 2
+Consumer 1: Remove Item 1726956429 from 3
+Consumer 1: Remove Item 336465782 from 4
+Consumer 2: Remove Item 35005211 from 0
+Consumer 2: Remove Item 521595368 from 1
+Consumer 2: Remove Item 294702567 from 2
+Consumer 2: Remove Item 1726956429 from 3
+Consumer 2: Remove Item 336465782 from 4
+Consumer 3: Remove Item 35005211 from 0
+Consumer 3: Remove Item 521595368 from 1
+Consumer 3: Remove Item 294702567 from 2
+Consumer 3: Remove Item 1726956429 from 3
+Consumer 3: Remove Item 336465782 from 4
+Consumer 4: Remove Item 35005211 from 0
+Consumer 4: Remove Item 521595368 from 1
+Consumer 4: Remove Item 294702567 from 2
+Consumer 4: Remove Item 1726956429 from 3
+Consumer 4: Remove Item 336465782 from 4
+Consumer 5: Remove Item 35005211 from 0
+Consumer 5: Remove Item 521595368 from 1
+Consumer 5: Remove Item 294702567 from 2
+Consumer 5: Remove Item 1726956429 from 3
+Consumer 5: Remove Item 336465782 from 4
+\end{lstlisting}

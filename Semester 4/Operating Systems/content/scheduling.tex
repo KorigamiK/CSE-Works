@@ -3,9 +3,10 @@
 
 Implementation of CPU scheduling in a first come first serve (FCFS) manner.
 
-\inputminted[linenos,autogobble]{c}{code/fcfs.c}
+\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/fcfs.c}
 
 The scheduler selects the process that has been waiting the longest.
+\pagebreak
 
 \begin{lstlisting}[style=output]
 Processes  Burst Time   Waiting Time    Turn Around Time
@@ -23,16 +24,76 @@ Implementation of CPU scheduling using a ``priority'' based approach using assig
 
 A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
 
-\inputminted[linenos,autogobble]{c}{code/priority.c}
+\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/priority.c}
 
 \begin{lstlisting}[style=output]
 Order in which processes gets executed
 2 3 4 1 
-Process         BurstTime      WaitingTime     TurnAroundTime
+Process         BurstTime       WaitingTime     TurnAroundTime
 2		19		0		19
 3		27		19		46
 4		25		46		71
 1		100		71		171
 Average waiting time = 34.000000
 Average turn around time = 76.750000
+\end{lstlisting}
+
+\pagebreak
+
+\section{CPU Scheduling: SJF}
+
+Implementation of CPU scheduling using the shortest job first (SJF) approach.
+
+\subsection{Algorithm}
+
+\begin{algorithm}
+	\caption{Shortest Job First}
+	\label{alg:sjf}
+	\begin{algorithmic}[1]
+		\State \textbf{Input:} $n$ processes with their burst times $bt_i$ and arrival times $at_i$
+		\State \textbf{Output:} The order in which the processes are executed
+		\State $t \gets 0$ \Comment{current time}
+		\State $i \gets 0$ \Comment{current process}
+		\State $bt \gets \{bt_1, \dots, bt_n\}$ \Comment{burst times}
+		\State $at \gets \{at_1, \dots, at_n\}$ \Comment{arrival times}
+		\State $bt' \gets \{bt_1, \dots, bt_n\}$ \Comment{remaining burst times}
+		\State $wt \gets \{0, \dots, 0\}$ \Comment{waiting times}
+		\State $tat \gets \{0, \dots, 0\}$ \Comment{turnaround times}
+		\While{$i < n$}
+			\If{$at_i \leq t$ and $bt'_i > 0$} \Comment{process is ready}
+				\State $bt'_i \gets bt'_i - 1$
+				\State $t \gets t + 1$
+				\If{$bt'_i = 0$}
+					\State $tat_i \gets t - at_i$
+					\State $wt_i \gets tat_i - bt_i$
+					\State $i \gets i + 1$
+				\EndIf
+			\Else
+				\State $t \gets t + 1$
+			\EndIf
+		\EndWhile
+		\State \textbf{Return:} $wt$ and $tat$
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/sjf.c}
+
+\begin{lstlisting}[style=output]
+Enter number of process: 5
+Enter Burst Time:
+P[1]: 1
+P[2]: 2
+P[3]: 3
+P[4]: 4
+P[5]: 5
+Process         BurstTime       WaitingTime     TurnAroundTime
+1               1               0               1
+2               2               1               3
+3               3               3               6
+4               4               6               10
+5               5               10              15
+Average Waiting Time: 4
+Average Turnaround Time: 7
 \end{lstlisting}

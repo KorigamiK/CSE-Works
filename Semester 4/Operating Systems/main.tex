@@ -3,6 +3,8 @@
 \usepackage{minted}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
 
 \title{Operating Systems}
 \titlelabel{Lab Report}
@@ -16,10 +18,11 @@
 	numbers=none, % where to put the line-numbers
 	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
 	backgroundcolor=\color{darkgray},
-	basicstyle=\ttfamily\color{white},
+	basicstyle=\ttfamily\color{white}\footnotesize,
 	captionpos=b, % sets the caption-position to bottom
 	breaklines=true, % sets automatic line breaking
 	breakatwhitespace=false,
+	keywordstyle=\color{white}\bfseries,
 }
 
 \begin{document}
@@ -34,5 +37,6 @@
 
 \input{content/processes.tex}
 \input{content/scheduling.tex}
+\input{content/producer_consumer.tex}
 
 \end{document}

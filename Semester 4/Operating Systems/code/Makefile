@@ -15,5 +15,13 @@ priority: priority.c
 	@gcc -o priority.out priority.c $(LIBS)
 	@./priority.out
 
+sjf: sjf.c
+	@gcc -o sjf.out sjf.c $(LIBS)
+	@./sjf.out
+
+producer_consumer: producer_consumer.c
+	@gcc -o producer_consumer.out producer_consumer.c $(LIBS)
+	@./producer_consumer.out
+
 clean:
 	@rm -f *.out
