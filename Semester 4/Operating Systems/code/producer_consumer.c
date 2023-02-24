@@ -53,19 +53,24 @@ int main() {
   pthread_attr_init(&attr);
 
   // Just used for numbering the producer and consumer
-  int a[5] = {1, 2, 3, 4, 5};
+  int a[3] = {1, 2, 3}; // A vector of item
 
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 3; i++)
     // Create the producer thread
     pthread_create(&pro[i], &attr, producer, &a[i]);
-  for (int i = 0; i < 5; i++)
+  
+  for (int i = 0; i < 3; i++) 
     // Create the consumer thread
     pthread_create(&con[i], &attr, consumer, &a[i]);
+  
 
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 3; i++) 
     // Wait for the producer thread to exit
     pthread_join(pro[i], NULL);
-  for (int i = 0; i < 5; i++)
+  
+  for (int i = 0; i < 3; i++) 
     // Wait for the consumer thread to exit
     pthread_join(con[i], NULL);
+
+  return 0;
 }

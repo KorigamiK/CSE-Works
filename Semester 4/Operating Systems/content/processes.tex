@@ -10,7 +10,7 @@
 A process is created by the \texttt{fork()} system call.
 The \texttt{fork()} system call creates a child process that is an exact copy of the parent process.
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/fork.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/fork.c}
 
 The \texttt{fork()} system call returns twice.
 The first time it returns the process ID of the child process to the parent process.
@@ -31,6 +31,6 @@ The exit() system call terminates the calling process.
 The exit() system call takes an integer argument
 that is returned to the parent process as the child's exit status.
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/exit.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/exit.c}
 
 

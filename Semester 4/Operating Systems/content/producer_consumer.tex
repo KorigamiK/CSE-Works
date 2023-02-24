@@ -52,57 +52,37 @@ The problem is to make sure that the producer won't try to add data into the buf
 
 \subsection{Implementation}
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/producer_consumer.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/producer_consumer.c}
 
 \begin{lstlisting}[style=output]
-Producer 2: Insert Item 1804289383 at 0
-Producer 1: Insert Item 846930886 at 1
-Producer 2: Insert Item 1681692777 at 2
-Producer 1: Insert Item 1714636915 at 3
+Producer 1: Insert Item 1804289383 at 0
+Producer 3: Insert Item 1681692777 at 1
+Producer 1: Insert Item 1714636915 at 2
+Producer 3: Insert Item 1957747793 at 3
 Producer 1: Insert Item 424238335 at 4
-Producer 2: Insert Item 1957747793 at 3
-Producer 1: Insert Item 719885386 at 0
-Producer 2: Insert Item 1649760492 at 1
-Producer 2: Insert Item 1189641421 at 3
-Producer 3: Insert Item 1025202362 at 4
-Producer 3: Insert Item 1350490027 at 0
-Producer 3: Insert Item 783368690 at 1
-Producer 3: Insert Item 1102520059 at 2
-Producer 3: Insert Item 2044897763 at 3
-Producer 1: Insert Item 596516649 at 2
-Producer 4: Insert Item 1967513926 at 0
-Producer 4: Insert Item 1365180540 at 1
-Producer 4: Insert Item 1540383426 at 2
-Producer 4: Insert Item 304089172 at 3
-Producer 4: Insert Item 1303455736 at 4
-Producer 5: Insert Item 35005211 at 0
-Producer 5: Insert Item 521595368 at 1
-Producer 5: Insert Item 294702567 at 2
-Producer 5: Insert Item 1726956429 at 3
-Producer 5: Insert Item 336465782 at 4
-Consumer 1: Remove Item 35005211 from 0
-Consumer 1: Remove Item 521595368 from 1
-Consumer 1: Remove Item 294702567 from 2
-Consumer 1: Remove Item 1726956429 from 3
-Consumer 1: Remove Item 336465782 from 4
-Consumer 2: Remove Item 35005211 from 0
-Consumer 2: Remove Item 521595368 from 1
-Consumer 2: Remove Item 294702567 from 2
-Consumer 2: Remove Item 1726956429 from 3
-Consumer 2: Remove Item 336465782 from 4
-Consumer 3: Remove Item 35005211 from 0
-Consumer 3: Remove Item 521595368 from 1
-Consumer 3: Remove Item 294702567 from 2
-Consumer 3: Remove Item 1726956429 from 3
-Consumer 3: Remove Item 336465782 from 4
-Consumer 4: Remove Item 35005211 from 0
-Consumer 4: Remove Item 521595368 from 1
-Consumer 4: Remove Item 294702567 from 2
-Consumer 4: Remove Item 1726956429 from 3
-Consumer 4: Remove Item 336465782 from 4
-Consumer 5: Remove Item 35005211 from 0
-Consumer 5: Remove Item 521595368 from 1
-Consumer 5: Remove Item 294702567 from 2
-Consumer 5: Remove Item 1726956429 from 3
-Consumer 5: Remove Item 336465782 from 4
+Producer 3: Insert Item 719885386 at 0
+Producer 1: Insert Item 1649760492 at 1
+Producer 3: Insert Item 596516649 at 2
+Producer 1: Insert Item 1189641421 at 3
+Producer 2: Insert Item 846930886 at 1
+Producer 2: Insert Item 1350490027 at 0
+Producer 2: Insert Item 783368690 at 1
+Producer 2: Insert Item 1102520059 at 2
+Producer 2: Insert Item 2044897763 at 3
+Producer 3: Insert Item 1025202362 at 3
+Consumer 1: Remove Item 1350490027 from 0
+Consumer 1: Remove Item 783368690 from 1
+Consumer 1: Remove Item 1102520059 from 2
+Consumer 1: Remove Item 2044897763 from 3
+Consumer 1: Remove Item 424238335 from 4
+Consumer 2: Remove Item 1350490027 from 0
+Consumer 2: Remove Item 783368690 from 1
+Consumer 2: Remove Item 1102520059 from 2
+Consumer 2: Remove Item 2044897763 from 3
+Consumer 2: Remove Item 424238335 from 4
+Consumer 3: Remove Item 1350490027 from 0
+Consumer 3: Remove Item 783368690 from 1
+Consumer 3: Remove Item 1102520059 from 2
+Consumer 3: Remove Item 2044897763 from 3
+Consumer 3: Remove Item 424238335 from 4    
 \end{lstlisting}

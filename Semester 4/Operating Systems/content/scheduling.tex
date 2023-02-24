@@ -3,7 +3,7 @@
 
 Implementation of CPU scheduling in a first come first serve (FCFS) manner.
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/fcfs.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/fcfs.c}
 
 The scheduler selects the process that has been waiting the longest.
 \pagebreak
@@ -24,7 +24,7 @@ Implementation of CPU scheduling using a ``priority'' based approach using assig
 
 A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/priority.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/priority.c}
 
 \begin{lstlisting}[style=output]
 Order in which processes gets executed
@@ -78,7 +78,7 @@ Implementation of CPU scheduling using the shortest job first (SJF) approach.
 
 \subsection{Implementation}
 
-\inputminted[fontsize=\footnotesize,linenos,autogobble]{c}{code/sjf.c}
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/sjf.c}
 
 \begin{lstlisting}[style=output]
 Enter number of process: 5
