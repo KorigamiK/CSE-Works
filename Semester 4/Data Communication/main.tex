@@ -1,0 +1,43 @@
+\documentclass{korigamik}
+
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\title{Data Communications}
+\titlelabel{Lab Report}
+\author{Kushagra Lakhwani}
+\rollno{2021UCI8036}
+\semester{4th}
+\logoimage{res/NSUT.png}{0.6}{Netaji Subhas University \\ of Technology}
+
+\colorlet{mycoolgray}{gray!40}
+\lstdefinestyle{output}{
+	numbers=none, % where to put the line-numbers
+	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+	backgroundcolor=\color{darkgray},
+	basicstyle=\ttfamily\color{white}\footnotesize,
+	captionpos=b, % sets the caption-position to bottom
+	breaklines=true, % sets automatic line breaking
+	breakatwhitespace=false,
+	keywordstyle=\color{white}\bfseries,
+}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\input{content/abstract.tex}
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\input{content/fourier.tex}
+\input{content/density.tex}
+\input{content/quantization.tex}
+
+\end{document}
