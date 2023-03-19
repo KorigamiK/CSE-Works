@@ -1,10 +1,10 @@
 close all;
 
 % parameters of a rectangular pulse signal
-w = 10;  % width
-A = 1;   % amplitude
-t = -10:0.01:10;  % time vector
-xt = A * rectpuls(t, w);  % rectangular pulse signal
+w = 10;                     % width
+A = 1;                      % amplitude
+t = -10:0.01:10;            % time vector
+xt = A * rectpuls(t, w);    % rectangular pulse signal
 
 % plot the rectangular pulse signal in the first subplot
 subplot(2, 2, 1)
