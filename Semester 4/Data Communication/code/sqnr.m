@@ -1,32 +1,42 @@
-% Program to Compute SQNR of Uniform Quantization and Plot the SQNR vs. Quantization Levels
 close all; clc;
 
-% Signal Parameters
-N = 10000;                  % Number of samples in the signal
-f = 1;                      % Signal frequency
-Fs = 1000;                  % Sampling frequency
-t = (0:N - 1) / Fs;         % Time vector
-x = sin(2 * pi * f * t);    % Signal
+% Define the message signal
+t = linspace(0, 1, 1000);
+fm = 1; % message signal frequency
+Am = 1; % message signal amplitude
+m = Am * sin(2 * pi * fm * t);
 
-% Quantization Parameters
-L = 2:20;                   % Number of quantization levels to try
-b = log2(L);                % Number of bits to represent each level
-Delta = 2 ./ (L - 1);       % Step size of the quantization levels
-SQNR = zeros(length(L), 1); % To store the Signal to Quantization Noise Ratio (SQNR) for each quantization level
+% Define the maximum number of quantization levels
+n_max = 4;
 
-% Uniform Quantization
-for i = 1:length(L)
-    q = round(x / Delta(i)) * Delta(i); % Quantize the signal
-    % Compute the SQNR
-    noise = x - q;
-    signal_power = sum(x .^ 2) / N;
-    noise_power = sum(noise .^ 2) / N;
-    SQNR(i) = 10 * log10(signal_power / noise_power);
+% Initialize vectors to store SQNR and number of quantization levels
+sqnr = zeros(1, n_max);
+levels = 1:n_max;
+
+% Compute the SQNR for each quantization level
+for i = 1:n_max
+    L = 2 ^ i;
+    delta = (max(m) - min(m)) / (L - 1);
+    m_quantized = delta * round(m / delta);
+    noise = m - m_quantized;
+    power_m = sum(m .^ 2) / length(m);
+    power_noise = sum(noise .^ 2) / length(noise);
+    sqnr(i) = power_m / power_noise;
 end
 
-% Plot the SQNR vs. Quantization Levels
-figure;
-plot(b, SQNR, 'b-o', 'LineWidth', 2);
-xlabel('Number of Bits');
-ylabel('Signal to Quantization Noise Ratio (dB)');
-grid on;
+% Plot the message signal and the quantized signal for n=4
+subplot(2, 1, 1);
+plot(t, m, 'b', 'LineWidth', 2);
+hold on;
+plot(t, m_quantized, 'r', 'LineWidth', 2);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Message signal and Quantized signal');
+legend('Message signal', 'Quantized signal');
+
+% Plot the number of quantization levels vs. the SQNR
+subplot(2, 1, 2);
+plot(sqnr, levels, 'LineWidth', 2);
+ylabel('Quantization levels');
+xlabel('Signal to Quantisation Noise Ratio (dB)');
+title('Number of quantization levels vs. SQNR');
