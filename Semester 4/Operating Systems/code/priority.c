@@ -13,15 +13,13 @@ typedef struct Process {
 int compare(Process a, Process b) { return a.priority < b.priority; }
 
 void sort(Process *p, int n) {
-  for (int i = 0; i < n; i++) {
-    for (int j = i + 1; j < n; j++) {
+  for (int i = 0; i < n; i++) 
+    for (int j = i + 1; j < n; j++) 
       if (compare(p[j], p[i])) {
         Process temp = p[i];
         p[i] = p[j];
         p[j] = temp;
-      }
-    }
-  }
+      }  
 }
 
 void findWaitingTime(Process proc[], int n, int wt[]) {

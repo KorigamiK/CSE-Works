@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BUFFER_SIZE 5
+#define BUFFER_SIZE 3
 
 int buffer[BUFFER_SIZE];
 int mutex = 1;
@@ -19,7 +19,7 @@ int out = 0;
 
 void *producer(void *pno) {
   int item;
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 3; i++) {
     item = rand(); // Produce an random item
     while (mutex <= 0)
       ; // Do nothing
@@ -31,10 +31,11 @@ void *producer(void *pno) {
     in = (in + 1) % BUFFER_SIZE;
     mutex++;
   }
+  return NULL;
 }
 
 void *consumer(void *cno) {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 3; i++) {
     while (mutex <= 0)
       ; // Do nothing
     mutex--;
@@ -45,22 +46,23 @@ void *consumer(void *cno) {
     out = (out + 1) % BUFFER_SIZE;
     mutex++;
   }
+  return NULL;
 }
 
 int main() {
-  pthread_t pro[5], con[5];
+  pthread_t pro[3], con[3];
   pthread_attr_t attr;
   pthread_attr_init(&attr);
 
   // Just used for numbering the producer and consumer
   int a[3] = {1, 2, 3}; // A vector of item
 
+  // Create the producer threads
   for (int i = 0; i < 3; i++)
-    // Create the producer thread
     pthread_create(&pro[i], &attr, producer, &a[i]);
   
+  // Create the consumer threads
   for (int i = 0; i < 3; i++) 
-    // Create the consumer thread
     pthread_create(&con[i], &attr, consumer, &a[i]);
   
 

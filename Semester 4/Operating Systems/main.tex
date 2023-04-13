@@ -5,24 +5,32 @@
 \usepackage{listings}
 \usepackage{algpseudocode}
 \usepackage{algorithm}
+\usetikzlibrary{shapes, arrows}
 
 \title{Operating Systems}
 \titlelabel{Lab Report}
 \author{Kushagra Lakhwani}
 \rollno{2021UCI8036}
 \semester{4th}
+\semester{4th}
+\course{CICPC09}
+\bottomnote{Department of Computer Science \& Engineering}
+\header{}
 \logoimage{res/NSUT.png}{0.6}{Netaji Subhas University \\ of Technology}
 
-\colorlet{mycoolgray}{gray!40}
 \lstdefinestyle{output}{
 	numbers=none, % where to put the line-numbers
 	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
-	backgroundcolor=\color{darkgray},
-	basicstyle=\ttfamily\color{white}\footnotesize,
+	backgroundcolor=\color{olive!10}, % choose the background color.
+	basicstyle=\ttfamily\color{black}\footnotesize,
 	captionpos=b, % sets the caption-position to bottom
 	breaklines=true, % sets automatic line breaking
 	breakatwhitespace=false,
 	keywordstyle=\color{white}\bfseries,
+	framexleftmargin=5pt,
+	framexrightmargin=10pt,
+	framexbottommargin=10pt,
+	framextopmargin=10pt,
 }
 
 \begin{document}
@@ -38,5 +46,6 @@
 \input{content/processes.tex}
 \input{content/scheduling.tex}
 \input{content/producer_consumer.tex}
+\input{content/page_replacement.tex}
 
 \end{document}

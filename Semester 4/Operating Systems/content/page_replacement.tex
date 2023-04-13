@@ -1,0 +1,84 @@
+\pagebreak
+
+\section{Page Replacement Policies: FIFO}
+\label{sec:page-replacement-fifo}
+
+This is the simplest page replacement algorithm.
+In this algorithm, the operating system keeps track of all pages in the memory in a queue,
+the oldest page is in the front of the queue.
+When a page needs to be replaced page in the front of
+the queue is selected for removal.
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, aspect=2, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{figure}[h]
+
+	\centering
+	\begin{tikzpicture}[node distance=2cm]
+		% Define nodes
+		\node (start) [startstop] {Start};
+		\node (initialize) [process, below of=start] {Initialize FIFO queue};
+		\node (access) [io, below of=initialize] {Access page};
+		\node (check) [decision, below of=access, yshift=-0.5cm] {Is page in memory?};
+		\node (hit) [process, below of=check, yshift=-2.5cm] {Page hit};
+		\node (miss) [process, right of=check, xshift=4cm] {Page miss};
+		\node (replace) [process, below of=miss, yshift=-0.5cm] {Replace page in FIFO queue};
+		\node (end) [startstop, below of=replace] {End};
+		% Connect nodes
+		\draw [arrow] (start) -- (initialize);
+		\draw [arrow] (initialize) -- (access);
+		\draw [arrow] (access) -- (check);
+		\draw [arrow] (check) -- node[anchor=east] {Yes} (hit);
+		\draw [arrow] (check) -- node[anchor=south] {No} (miss);
+		\draw [arrow] (miss) -- (replace);
+		\draw [arrow] (replace) -- (end);
+		\draw [arrow] (hit) -- (end);
+	\end{tikzpicture}
+	\caption{Page Replacement Policies: FIFO}
+	\label{fig:page-replacement-fifo}
+
+\end{figure}
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize]{c}{code/page_fifo.c}
+
+\begin{lstlisting}[style=output]
+Enter the number of pages: 4
+Enter the capacity of the page table: 3
+Enter the page references:
+9 5 2 2
+Number of page faults: 3
+\end{lstlisting}
+
+\subsubsection{Analysis}
+
+\begin{itemize}
+	\item \textbf{Hit Ratio:} $H = \frac{N_{hits}}{N_{hits} + N_{misses}} = \frac{N_{hits}}{N_{hits} + N_{pages} - N_{hits}} = \frac{N_{hits}}{N_{pages}}$
+	\item \textbf{Miss Ratio:} $M = \frac{N_{misses}}{N_{hits} + N_{misses}} = \frac{N_{misses}}{N_{pages}}$
+\end{itemize}
+
+
+\section{Page Replacement Policies: LRU}
+\label{sec:page-replacement-lru}
+
+The Least Recently Used (LRU) page replacement algorithm
+keeps track of the last time a page was accessed.
+When a page needs to be replaced, the page that was accessed the longest time ago is selected for removal.
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize]{c}{code/page_lru.c}
+
+\begin{lstlisting}[style=output]
+Enter the number of pages: 9
+Enter the capacity of the page table: 3
+Enter the page references:
+9 5 2 2 5 9 2 5 9
+Number of page faults: 8
+\end{lstlisting}
+
