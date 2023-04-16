@@ -32,7 +32,6 @@ A major problem with priority scheduling is indefinite blocking or starvation. A
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/priority.c}
 
-\pagebreak
 \subsection{Output}
 \begin{lstlisting}[style=output]
 Order in which processes gets executed
@@ -46,6 +45,7 @@ Average waiting time = 34.000000
 Average turn around time = 76.750000
 \end{lstlisting}
 
+\pagebreak
 \section{CPU Scheduling: SJF}
 
 \subsection{Aim}
@@ -56,7 +56,7 @@ Implementation of CPU scheduling using the shortest job first (SJF) approach.
 \begin{algorithm}
 	\caption{Shortest Job First}
 	\label{alg:sjf}
-	\begin{algorithmic}[1]
+	\begin{algorithmic}
 		\State \textbf{Input:} $n$ processes with their burst times $bt_i$ and arrival times $at_i$
 		\State \textbf{Output:} The order in which the processes are executed
 		\State $t \gets 0$ \Comment{current time}

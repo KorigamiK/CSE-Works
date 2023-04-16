@@ -23,29 +23,29 @@ the queue is selected for removal.
 
 \begin{figure}[h]
 
-	\centering
-	\begin{tikzpicture}[node distance=2cm]
-		% Define nodes
-		\node (start) [startstop] {Start};
-		\node (initialize) [process, below of=start] {Initialize FIFO queue};
-		\node (access) [io, below of=initialize] {Access page};
-		\node (check) [decision, below of=access, yshift=-0.5cm] {Is page in memory?};
-		\node (hit) [process, below of=check, yshift=-2.5cm] {Page hit};
-		\node (miss) [process, right of=check, xshift=4cm] {Page miss};
-		\node (replace) [process, below of=miss, yshift=-0.5cm] {Replace page in FIFO queue};
-		\node (end) [startstop, below of=replace] {End};
-		% Connect nodes
-		\draw [arrow] (start) -- (initialize);
-		\draw [arrow] (initialize) -- (access);
-		\draw [arrow] (access) -- (check);
-		\draw [arrow] (check) -- node[anchor=east] {Yes} (hit);
-		\draw [arrow] (check) -- node[anchor=south] {No} (miss);
-		\draw [arrow] (miss) -- (replace);
-		\draw [arrow] (replace) -- (end);
-		\draw [arrow] (hit) -- (end);
-	\end{tikzpicture}
-	\caption{Page Replacement Policies: FIFO}
-	\label{fig:page-replacement-fifo}
+  \centering
+  \begin{tikzpicture}[node distance=2cm]
+    % Define nodes
+    \node (start) [startstop] {Start};
+    \node (initialize) [process, below of=start] {Initialize FIFO queue};
+    \node (access) [io, below of=initialize] {Access page};
+    \node (check) [decision, below of=access, yshift=-0.5cm] {Is page in memory?};
+    \node (hit) [process, below of=check, yshift=-2.5cm] {Page hit};
+    \node (miss) [process, right of=check, xshift=4cm] {Page miss};
+    \node (replace) [process, below of=miss, yshift=-0.5cm] {Replace page in FIFO queue};
+    \node (end) [startstop, below of=replace] {End};
+    % Connect nodes
+    \draw [arrow] (start) -- (initialize);
+    \draw [arrow] (initialize) -- (access);
+    \draw [arrow] (access) -- (check);
+    \draw [arrow] (check) -- node[anchor=east] {Yes} (hit);
+    \draw [arrow] (check) -- node[anchor=south] {No} (miss);
+    \draw [arrow] (miss) -- (replace);
+    \draw [arrow] (replace) -- (end);
+    \draw [arrow] (hit) -- (end);
+  \end{tikzpicture}
+  \caption{Page Replacement Policies: FIFO}
+  \label{fig:page-replacement-fifo}
 
 \end{figure}
 
@@ -61,14 +61,6 @@ Enter the page references:
 9 5 2 2
 Number of page faults: 3
 \end{lstlisting}
-
-\subsubsection{Analysis}
-
-\begin{itemize}
-	\item \textbf{Hit Ratio:} $H = \frac{N_{hits}}{N_{hits} + N_{misses}} = \frac{N_{hits}}{N_{hits} + N_{pages} - N_{hits}} = \frac{N_{hits}}{N_{pages}}$
-	\item \textbf{Miss Ratio:} $M = \frac{N_{misses}}{N_{hits} + N_{misses}} = \frac{N_{misses}}{N_{pages}}$
-\end{itemize}
-
 
 \section{Page Replacement Policies: LRU}
 \label{sec:page-replacement-lru}

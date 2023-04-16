@@ -1,6 +1,4 @@
-/**
- * Forks a new process and checks for parent and child processes
- */
+/** @brief Forks a new process and checks for parent and child processes */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +17,5 @@ int main(int argc, char *argv[]) {
     printf("Fork failed");
     exit(EXIT_FAILURE);
   }
-
   return 0;
 }

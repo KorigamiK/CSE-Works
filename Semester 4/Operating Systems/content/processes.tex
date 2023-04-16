@@ -1,14 +1,16 @@
 \section{Process Creation and Termination}
 \label{sec:process-creation-and-termination}
 
-\subsection{Process Creation}
+\subsection{Aim}
+To understand the process creation and termination mechanisms.
+
+\subsection*{Process Creation}
 \label{sec:process-creation}
 
-\subsubsection{The \texttt{fork()} System Call}
-\label{sec:the-fork-system-call}
+A process is created by the \texttt{fork()} system call
+which creates a child process that is an exact copy of the parent process.
 
-A process is created by the \texttt{fork()} system call.
-The \texttt{fork()} system call creates a child process that is an exact copy of the parent process.
+\subsection*{Implementation}
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/fork.c}
 
@@ -16,21 +18,21 @@ The \texttt{fork()} system call returns twice.
 The first time it returns the process ID of the child process to the parent process.
 The second time it returns 0 to the child process.
 
+\subsection*{Output}
+
 \begin{lstlisting}[style=output]
 Parent process pid: 96732
 Child process pid: 96733    
 \end{lstlisting}
 
-\subsection{Process Termination}
+\subsection*{Process Termination}
 \label{sec:process-termination}
 
-\subsubsection{The exit() System Call}
-\label{sec:the-exit-system-call}
+The \texttt{exit()} system call terminates the calling process.
+It takes an integer argument that is returned to the
+parent process as the child's exit status.
 
-The exit() system call terminates the calling process.
-The exit() system call takes an integer argument
-that is returned to the parent process as the child's exit status.
-
+\subsection*{Implementation}
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/exit.c}
 
 
