@@ -1,8 +1,7 @@
 data = randn(1000, 1); % Generate random numbers
-
 histogram(data, 20, 'Normalization', 'pdf');
-hold on;
 
+hold on;
 mu = mean(data);
 sigma = std(data);
 
@@ -16,5 +15,4 @@ plot(x, y, 'LineWidth', 2);
 title('Histogram of Random Data with Gaussian Fit');
 xlabel('Data Value');
 ylabel('Probability Density');
-
 hold off;
