@@ -13,9 +13,8 @@ void find_waiting_time(int processes[], int n, int bt[], int wt[]) {
 
 void find_turn_around_time(int processes[], int n, int bt[], int wt[],
                            int tat[]) {
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i++)
     tat[i] = bt[i] + wt[i];
-  }
 }
 
 void find_avg_time(int processes[], int n, int bt[]) {

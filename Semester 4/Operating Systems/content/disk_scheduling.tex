@@ -1,0 +1,38 @@
+\pagebreak
+
+\section{Disk Scheduling: FCFS}
+\label{sec:disk-fcfs}
+
+Implementation of disk scheduling in a
+first come first serve (FCFS) manner.
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/disk_fcfs.c}
+
+\begin{lstlisting}[style=output]
+Enter the size of the queue: 8
+Enter the queue: 98 183 37 122 14 124 65 67
+Enter the head: 460
+Total number of seek operations: 957
+Seek Sequence is -> 98 -> 183 -> 37 -> 122 -> 14 -> 124 -> 65 -> 67
+\end{lstlisting}
+
+
+\section{Disk Scheduling: SSTF}
+\label{sec:disk-sstf}
+
+Implementation of disk scheduling using the
+shortest seek time first (SSTF) approach.
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/disk_sstf.c}
+
+\begin{lstlisting}[style=output]
+Enter the size of the queue: 8
+Enter the queue: 98 183 37 122 14 124 65 67
+Enter the head: 53
+Total number of seek operations: 236
+Seek Sequence is -> 65 -> 67 -> 37 -> 14 -> 53 -> 98 -> 122 -> 124 -> 183
+\end{lstlisting}

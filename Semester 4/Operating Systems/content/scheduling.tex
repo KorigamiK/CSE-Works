@@ -3,6 +3,8 @@
 
 Implementation of CPU scheduling in a first come first serve (FCFS) manner.
 
+\subsection{Implementation}
+
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/fcfs.c}
 
 The scheduler selects the process that has been waiting the longest.
@@ -23,6 +25,8 @@ Average turn around time = 16.000000
 Implementation of CPU scheduling using a ``priority'' based approach using assigned ranks/priority algorithms.
 
 A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
+
+\subsection{Implementation}
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/priority.c}
 
@@ -68,8 +72,8 @@ Implementation of CPU scheduling using the shortest job first (SJF) approach.
 					\State $wt_i \gets tat_i - bt_i$
 					\State $i \gets i + 1$
 				\EndIf
-			\Else
-				\State $t \gets t + 1$
+				\Else
+					\State $t \gets t + 1$
 			\EndIf
 		\EndWhile
 		\State \textbf{Return:} $wt$ and $tat$

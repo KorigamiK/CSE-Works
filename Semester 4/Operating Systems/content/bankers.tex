@@ -1,0 +1,100 @@
+\section{Bankers' Algorithm}
+\label{sec:bankers}
+
+The Banker's Algorithm is a resource allocation and deadlock
+avoidance algorithm that tests for safety by simulating the
+allocation for predetermined maximum possible amounts of all
+resources, and then makes an "s-state" check to test for possible
+activities, before deciding whether allocation should be allowed to continue.
+It was proposed by Edsger Dijkstra in 1965 and published in 1968.
+
+\subsection{Problem Statement}
+
+The following is a description of the resources used in the Banker's Algorithm.
+
+\begin{itemize}
+	\item \textbf{Resource Type} - A resource type is a type of resource that can be allocated to a process. For example, a computer system may have three resource types: CPU, I/O, and Memory\
+	\item \textbf{Resource} - A resource is an instance of a resource type. For example, a computer system may have 10 CPU resources, 5 I/O resources, and 100 Memory resources.
+	\item \textbf{Resource Vector} - A resource vector is a vector of resources. For example, a computer system may have a resource vector of 10 CPU resources, 5 I/O resources, and 100 Memory resources.
+	\item \textbf{Maximum Claim} - The maximum claim of a process is the maximum number of resources of each type that the process may request. For example, a process may have a maximum claim of 10 CPU resources, 5 I/O resources, and 100 Memory resources.
+	\item \textbf{Allocation} - The allocation of a process is the number of resources of each type that have been allocated to the process. For example, a process may have an allocation of 2 CPU resources, 1 I/O resource, and 50 Memory resources.
+	\item \textbf{Need} - The need of a process is the number of resources of each type that the process still needs. For example, a process may have a need of 8 CPU resources, 4 I/O resources, and 50 Memory resources.
+\end{itemize}
+
+\subsection{Algorithm}
+
+\subsubsection{Initialization}
+
+The Banker's Algorithm is initialized with the following:
+
+\begin{itemize}
+	\item A resource vector \textbf{available} that contains the number of available resources of each type.
+	\item A maximum claim matrix \textbf{max} that contains the maximum number of resources of each type that each process may request.
+	\item An allocation matrix \textbf{allocation} that contains the number of resources of each type that have been allocated to each process.
+\end{itemize}
+
+The need matrix \textbf{need} is then calculated as follows:
+
+\begin{equation}
+	\textbf{need} = \textbf{max} - \textbf{allocation}
+\end{equation}
+
+\pagebreak
+
+\subsubsection{Safe State}
+
+\begin{algorithm}
+	\caption{Safe State}
+	\label{alg:safe_state}
+	\begin{algorithmic}
+		\State \textbf{Input:} \textbf{available}, \textbf{max}, \textbf{allocation}
+		\State \textbf{Output:} \textbf{true} if \textbf{available} can satisfy \textbf{need}, \textbf{false} otherwise
+		\State \textbf{Initialize:} \textbf{work} = \textbf{available}, \textbf{finish} = \textbf{false}
+		\While{there exists a process \textbf{p} such that \textbf{finish[p]} is \textbf{false}}
+		\If{\textbf{need[p]} $\leq$ \textbf{work}}
+		\State \textbf{work} = \textbf{work} + \textbf{allocation[p]}
+		\State \textbf{finish[p]} = \textbf{true}
+		\EndIf
+		\EndWhile
+		\State \textbf{Return:} \textbf{true} if \textbf{finish} is \textbf{true} for all processes, \textbf{false} otherwise
+	\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Request Resources}
+
+The request resources algorithm is as follows:
+
+\begin{algorithm}
+	\caption{Request Resources}
+	\label{alg:request_resources}
+	\begin{algorithmic}
+		\Require A process $P$ and a resource vector $request$
+		\Ensure The request is either granted or denied
+		\State $need = max - allocation$
+		\If{$request > need$}
+		\State Deny request
+		\Else
+		\If{$request > available$}
+		\State Deny request
+		\Else
+		\State $available = available - request$
+		\State $allocation = allocation + request$
+		\State $need = need - request$
+		\If{Safe State}
+		\State Grant request
+		\Else
+		\State Deny request
+		\EndIf
+		\EndIf
+		\EndIf
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{Implementation}
+
+\inputminted[fontsize=\footnotesize,autogobble]{c}{code/bankers.c}
+
+\begin{lstlisting}[style=output]
+Following is the SAFE Sequence
+P1 -> P3 -> P4 -> P0 -> P2
+\end{lstlisting}
