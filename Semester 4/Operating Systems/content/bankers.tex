@@ -1,6 +1,10 @@
 \section{Bankers' Algorithm}
 \label{sec:bankers}
 
+\subsection{Aim}
+Implementation of the Banker's Algorithm.
+
+\subsection{Theory}
 The Banker's Algorithm is a resource allocation and deadlock
 avoidance algorithm that tests for safety by simulating the
 allocation for predetermined maximum possible amounts of all
@@ -94,6 +98,7 @@ The request resources algorithm is as follows:
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/bankers.c}
 
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Following is the SAFE Sequence
 P1 -> P3 -> P4 -> P0 -> P2

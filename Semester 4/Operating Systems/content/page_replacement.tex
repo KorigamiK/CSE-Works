@@ -3,6 +3,10 @@
 \section{Page Replacement Policies: FIFO}
 \label{sec:page-replacement-fifo}
 
+\subsection{Aim}
+Implementation of the FIFO page replacement algorithm.
+
+\subsection{Theory}
 This is the simplest page replacement algorithm.
 In this algorithm, the operating system keeps track of all pages in the memory in a queue,
 the oldest page is in the front of the queue.
@@ -49,6 +53,7 @@ the queue is selected for removal.
 
 \inputminted[fontsize=\footnotesize]{c}{code/page_fifo.c}
 
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Enter the number of pages: 4
 Enter the capacity of the page table: 3
@@ -68,6 +73,10 @@ Number of page faults: 3
 \section{Page Replacement Policies: LRU}
 \label{sec:page-replacement-lru}
 
+\subsection{Aim}
+Implementation of the LRU page replacement algorithm.
+
+\subsection{Theory}
 The Least Recently Used (LRU) page replacement algorithm
 keeps track of the last time a page was accessed.
 When a page needs to be replaced, the page that was accessed the longest time ago is selected for removal.
@@ -76,6 +85,7 @@ When a page needs to be replaced, the page that was accessed the longest time ag
 
 \inputminted[fontsize=\footnotesize]{c}{code/page_lru.c}
 
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Enter the number of pages: 9
 Enter the capacity of the page table: 3

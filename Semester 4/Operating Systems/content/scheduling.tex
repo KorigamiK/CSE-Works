@@ -1,15 +1,15 @@
 \section{CPU Scheduling: FCFS}
 \label{sec:cpu-scheduling}
 
+\subsection{Aim}
 Implementation of CPU scheduling in a first come first serve (FCFS) manner.
 
 \subsection{Implementation}
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/fcfs.c}
 
+\subsection{Output}
 The scheduler selects the process that has been waiting the longest.
-\pagebreak
-
 \begin{lstlisting}[style=output]
 Processes  Burst Time   Waiting Time    Turn Around Time
 1	   10		0		10
@@ -22,14 +22,18 @@ Average turn around time = 16.000000
 \section{CPU Scheduling: Priority}
 \label{sec:cpu-scheduling-priority}
 
+\subsection{Aim}
 Implementation of CPU scheduling using a ``priority'' based approach using assigned ranks/priority algorithms.
 
+\subsection{Theory}
 A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
 
 \subsection{Implementation}
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/priority.c}
 
+\pagebreak
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Order in which processes gets executed
 2 3 4 1 
@@ -42,10 +46,9 @@ Average waiting time = 34.000000
 Average turn around time = 76.750000
 \end{lstlisting}
 
-\pagebreak
-
 \section{CPU Scheduling: SJF}
 
+\subsection{Aim}
 Implementation of CPU scheduling using the shortest job first (SJF) approach.
 
 \subsection{Algorithm}
@@ -84,6 +87,7 @@ Implementation of CPU scheduling using the shortest job first (SJF) approach.
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/sjf.c}
 
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Enter number of process: 5
 Enter Burst Time:

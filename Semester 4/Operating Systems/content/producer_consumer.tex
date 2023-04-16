@@ -1,6 +1,7 @@
 \section{Producer-Consumer Problem}
 \label{sec:producer_consumer}
 
+\subsection{Aim}
 Implementation of the producer-consumer problem using semaphores.
 
 \subsection{Problem Statement}
@@ -19,7 +20,6 @@ The problem is to make sure that the producer won't try to add data into the buf
 \end{itemize}
 
 \pagebreak
-
 \subsection{Algorithm}
 
 \begin{algorithm}
@@ -54,6 +54,7 @@ The problem is to make sure that the producer won't try to add data into the buf
 
 \inputminted[fontsize=\footnotesize,autogobble]{c}{code/producer_consumer.c}
 
+\subsection{Output}
 \begin{lstlisting}[style=output]
 Producer 1: Insert Item 1804289383 at 0
 Consumer 1: Remove Item 1804289383 from 0
