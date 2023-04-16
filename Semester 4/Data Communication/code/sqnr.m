@@ -6,8 +6,7 @@ fm = 1; % message signal frequency
 Am = 1; % message signal amplitude
 m = Am * sin(2 * pi * fm * t);
 
-% Define the maximum number of quantization levels
-n_max = 4;
+n_max = 4; % Define the maximum number of quantization levels
 
 % Initialize vectors to store SQNR and number of quantization levels
 sqnr = zeros(1, n_max);
