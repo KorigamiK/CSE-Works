@@ -28,6 +28,10 @@
 	keywordstyle=\color{white}\bfseries,
 }
 
+\usepackage{tocloft}
+\renewcommand{\cftsecafterpnum}{\qquad\rule{2cm}{0.4pt}}
+\setcounter{tocdepth}{1}
+
 \begin{document}
 
 \maketitle
@@ -43,6 +47,7 @@
 \input{content/uniform.tex}
 \input{content/density.tex}
 \input{content/quantization.tex}
+\input{content/bpsk.tex}
 \input{content/pcm.tex}
 
 \end{document}

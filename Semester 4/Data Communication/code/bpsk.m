@@ -1,5 +1,4 @@
 % BPSK Bit Error Rate Calculation
-close all;
 clc;
 
 % Define the parameters
@@ -7,7 +6,7 @@ N = 10 ^ 6; % number of bits to transmit
 Eb_N0_dB = 0:2:10; % Eb/N0 values in dB
 ip = rand(1, N) > 0.5; % generating 0,1 with equal probability
 s = 2 * ip - 1; % BPSK modulation
-n = 1 / sqrt(2) * [randn(1, N) + j * randn(1, N)]; % white gaussian noise, 0dB variance
+n = 1 / sqrt(2) * (randn(1, N) + 1i * randn(1, N)); % white gaussian noise, 0dB variance
 
 for ii = 1:length(Eb_N0_dB)
     % Channel model - AWGN
@@ -15,7 +14,7 @@ for ii = 1:length(Eb_N0_dB)
     % Demodulation
     y_cap = real(y) > 0;
     % Counting the errors
-    error(ii) = size(find([ip - y_cap]), 2);
+    error(ii) = size(find(ip - y_cap), 2);
 end
 
 simulatedBER = error / N; % simulated BER
