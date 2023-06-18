@@ -1,6 +1,4 @@
-[submodule "semester-3"]
-	path = semester-3
-	url = git@github.com:KorigamiK/semester-3.git
 [submodule "Semester-3"]
 	path = Semester-3
 	url = git@github.com:KorigamiK/Semester-3.git
+	branch = main
