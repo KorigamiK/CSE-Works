@@ -1,0 +1,53 @@
+\documentclass[a3paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage[table,xcdraw]{xcolor} % for table color
+\setlength\parindent{0pt}
+
+%% Generated from https://ossnsut.zc.al/post/latex-timetable/
+%% 10 rows with 60 minute intervals
+% (AIML > AI \& ML)[A7-7 B4-4 C4-4]
+% (DS > Data Science)[A8-8 B3-3 C3-3]
+% (ES > Embedded Systems)[B8-8 D9-9 E3-3]
+% (CC > Cloud Computing)[B7-7 D2-2 E4-4]
+% (ACN > Computer Networks)[C8-8 D3-3 E2-2]
+% (AI \& ML Lab G1 > Data Science Lab G2)[A5-6]
+% (Cloud Computing > Lab)[B5-6 B9-10]
+% (Embedded Systems > Lab)[D5-6]
+% (Data Science Lab G1 > Embedded Systems Lab G2)[D7-8]
+% (Computer Networks > Lab)[E5-6 E7-8]
+
+\newcommand{\entry}[2]{\begin{tabular}{c}\\#1\\#2\\\phantom{ }\end{tabular}}
+\pagenumbering{gobble}
+\usepackage{geometry}
+\geometry{
+	landscape,
+	left=40mm,
+}
+
+\begin{document}
+
+\begin{center}
+
+	\section*{B.Tech 5th sem}
+	\label{sec:B.Tech 5th sem}
+
+	\begin{tabular}{|>{\columncolor[HTML]{C0C0C0}}c || c | c | c | c | c | c | c | c | c | c |}
+		\hline \rowcolor[HTML]{C0C0C0}
+		\textbf{Time}                      & \entry{8:00 AM -} {9:00 AM } & \entry{9:00 AM -} {10:00 AM }                                 & \entry{10:00 AM -} {11:00 AM }                                & \entry{11:00 AM -} {12:00 PM }                             & \entry{12:00 PM -} {1:00 PM }                                                                     & \entry{1:00 PM -} {2:00 PM }                                                                              & \entry{2:00 PM -} {3:00 PM }                                & \entry{3:00 PM -} {4:00 PM }                                                         & \entry{4:00 PM -} {5:00 PM } & \entry{5:00 PM -} {6:00 PM }
+		\\ \hline\hline
+		\cellcolor[HTML]{077187} Monday    &                              &                                                               &                                                               &                                                            & \multicolumn{2}{c|}{\cellcolor[HTML]{ e76f51 } \entry{ AI \& ML Lab G1 }{ Data Science Lab G2 } } & \cellcolor[HTML]{ EEEBD0 } \entry{ AIML }{ AI \& ML }                                                     & \cellcolor[HTML]{ E8DDB5 } \entry{ DS }{ Data Science }     &                                                                                      &
+		\\ \hline
+		\cellcolor[HTML]{2a9d8f} Tuesday   &                              &                                                               & \cellcolor[HTML]{ E8DDB5 } \entry{ DS }{ Data Science }       & \cellcolor[HTML]{ EEEBD0 } \entry{ AIML }{ AI \& ML }      & \multicolumn{2}{c|}{\cellcolor[HTML]{ f4a261 } \entry{ Cloud Computing }{ Lab G1 } }              & \cellcolor[HTML]{ E4C5AF } \entry{ CC }{ Cloud Computing }                                                & \cellcolor[HTML]{ BBACC1 } \entry{ ES }{ Embedded Systems } & \multicolumn{2}{c|}{\cellcolor[HTML]{ f4a261 } \entry{ Cloud Computing }{ Lab G2 } }
+		\\ \hline
+		\cellcolor[HTML]{e9c46a} Wednesday &                              &                                                               & \cellcolor[HTML]{ E8DDB5 } \entry{ DS }{ Data Science }       & \cellcolor[HTML]{ EEEBD0 } \entry{ AIML }{ AI \& ML }      &                                                                                                   &                                                                                                           &                                                             & \cellcolor[HTML]{ 9ECE9A } \entry{ ACN }{ Computer Networks }                        &                              &
+		\\ \hline
+		\cellcolor[HTML]{f4a261} Thursday  &                              & \cellcolor[HTML]{ E4C5AF } \entry{ CC }{ Cloud Computing }    & \cellcolor[HTML]{ 9ECE9A } \entry{ ACN }{ Computer Networks } &                                                            & \multicolumn{2}{c|}{\cellcolor[HTML]{ e9c46a } \entry{ Embedded Systems }{ Lab G1 } }             & \multicolumn{2}{c|}{\cellcolor[HTML]{ ED254E } \entry{ Data Science Lab G1 }{ Embedded Systems Lab G2 } } & \cellcolor[HTML]{ BBACC1 } \entry{ ES }{ Embedded Systems } &
+		\\ \hline
+		\cellcolor[HTML]{e76f51} Friday    &                              & \cellcolor[HTML]{ 9ECE9A } \entry{ ACN }{ Computer Networks } & \cellcolor[HTML]{ BBACC1 } \entry{ ES }{ Embedded Systems }   & \cellcolor[HTML]{ E4C5AF } \entry{ CC }{ Cloud Computing } & \multicolumn{2}{c|}{\cellcolor[HTML]{ 2a9d8f  } \entry{ Computer Networks }{ Lab G1 } }           & \multicolumn{2}{c|}{\cellcolor[HTML]{ 2a9d8f  } \entry{ Computer Networks }{ Lab G2 } }                   &                                                             &
+		\\ \hline
+	\end{tabular}
+
+\end{center}
+
+\end{document}
