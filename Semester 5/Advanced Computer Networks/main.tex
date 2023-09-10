@@ -47,13 +47,13 @@
 
 \section{IPv4 Address Conversion}
 \label{sec:ipv4}
-\subsection*{Objective}
+\subsection{Objective}
 To convert a binary IP address into dotted decimal and vice versa.
-\subsection*{Source Code}
+\subsection{Source Code}
 \inputminted[firstline=5, lastline=39]{cpp}{code/ipv4.cpp}
-\subsection*{Output}
+\subsection{Output}
 
-\subsubsection*{Binary to dotted decimal IP address}
+\subsubsection{Binary to dotted decimal IP address}
 \begin{lstlisting}[style=output]
 $ ./ipv4
 1. Binary to dotted decimal IP address
@@ -63,7 +63,7 @@ Enter binary IP address (32 bits): 11000000101010000000000100000001
 Dotted Decimal IP address: 192.168.1.1
 \end{lstlisting}
 
-\subsubsection*{Dotted decimal to binary IP address}
+\subsubsection{Dotted decimal to binary IP address}
 
 \begin{lstlisting}[style=output]
 $ ./ipv4
@@ -74,11 +74,13 @@ Enter dotted decimal IP address (e.g., 192.168.1.1): 203.128.56.2
 Binary IP address: 11001011100000000011100000000010
 \end{lstlisting}
 
+\pagebreak
+
 \section{IP Address Classes}
 \label{sec:ipclass}
-\subsection*{Objective}
+\subsection{Objective}
 To identify the class of an IP address.
-\subsection*{Theory}
+\subsection{Theory}
 In IPv4, IP addresses are divided into five classes: A, B, C, D, and E. Each
 class has its own range of valid IP addresses and is used for specific
 purposes.
@@ -114,14 +116,16 @@ purposes.
 \end{enumerate}
 
 
-\subsection*{Source Code}
+\subsection{Source Code}
 \inputminted[firstline=5, lastline=25]{cpp}{code/ipv4class.cpp}
-\subsection*{Output}
+\subsection{Output}
 \begin{lstlisting}[style=output]
 $ ./ipv4class
 Enter an IPv4 address: 192.168.1.1
 Class: C
 \end{lstlisting}
+
+\pagebreak
 
 \section{Bellman-Ford Algorithm}
 \label{sec:Bellman-Ford Algorithm}
@@ -138,7 +142,7 @@ algorithm for all cases (especially for graphs with non-negative weights, where
 Dijkstra's algorithm is typically faster),
 
 \subsection{Source Code}
-\inputminted[firstline=5, lastline=54]{cpp}{code/bellmanford.cpp}
+\inputminted[firstline=6, lastline=55]{cpp}{code/bellmanford.cpp}
 
 \subsection{Output}
 \begin{lstlisting}[style=output]
