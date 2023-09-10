@@ -1,0 +1,157 @@
+\documentclass{korigamik}
+
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumitem}
+
+\title{Advanced Computer Networks}
+\titlelabel{Lab Report}
+\bottomnote{Department of Computer Science \& Engineering}
+\author{Kushagra Lakhwani}
+\rollno{2021UCI8036}
+\semester{5th}
+\course{CICPC16}
+\logoimage{res/NSUT.png}{0.6}{Netaji Subhas University \\ of Technology}
+\header{}
+
+\colorlet{mycoolgray}{gray!40}
+\lstdefinestyle{output}{
+	numbers=none, % where to put the line-numbers
+	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers
+	backgroundcolor=\color{darkgray},
+	basicstyle=\ttfamily\color{white}\footnotesize,
+	captionpos=b, % sets the caption-position to bottom
+	breaklines=true, % sets automatic line breaking
+	breakatwhitespace=false,
+	keywordstyle=\color{white}\bfseries,
+	language=bash,
+}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecafterpnum}{\qquad\rule{2cm}{0.4pt}}
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\input{content/abstract.tex}
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{IPv4 Address Conversion}
+\label{sec:ipv4}
+\subsection*{Objective}
+To convert a binary IP address into dotted decimal and vice versa.
+\subsection*{Source Code}
+\inputminted[firstline=5, lastline=39]{cpp}{code/ipv4.cpp}
+\subsection*{Output}
+
+\subsubsection*{Binary to dotted decimal IP address}
+\begin{lstlisting}[style=output]
+$ ./ipv4
+1. Binary to dotted decimal IP address
+2. Dotted decimal to binary IP address
+Enter your choice: 1
+Enter binary IP address (32 bits): 11000000101010000000000100000001
+Dotted Decimal IP address: 192.168.1.1
+\end{lstlisting}
+
+\subsubsection*{Dotted decimal to binary IP address}
+
+\begin{lstlisting}[style=output]
+$ ./ipv4
+1. Binary to dotted decimal IP address
+2. Dotted decimal to binary IP address
+Enter your choice: 2
+Enter dotted decimal IP address (e.g., 192.168.1.1): 203.128.56.2
+Binary IP address: 11001011100000000011100000000010
+\end{lstlisting}
+
+\section{IP Address Classes}
+\label{sec:ipclass}
+\subsection*{Objective}
+To identify the class of an IP address.
+\subsection*{Theory}
+In IPv4, IP addresses are divided into five classes: A, B, C, D, and E. Each
+class has its own range of valid IP addresses and is used for specific
+purposes.
+
+\begin{enumerate}[label=\textbf{Class \Alph*:}, leftmargin=2cm]
+	\item \begin{itemize}
+		      \item Range: 1.0.0.0 to 126.255.255.255
+		      \item Subnet Mask: 255.0.0.0
+		      \item Address Allocation: Class A addresses are typically used by large organizations and corporations. They can support a very large number of hosts on a single network.
+	      \end{itemize}
+	      
+	\item \begin{itemize}
+		      \item Range: 128.0.0.0 to 191.255.255.255
+		      \item Subnet Mask: 255.255.0.0
+		      \item Address Allocation: Class B addresses are used by medium-sized organizations. They offer a moderate number of network and host addresses.
+	      \end{itemize}
+	      
+	\item \begin{itemize}
+		      \item Range: 192.0.0.0 to 223.255.255.255
+		      \item Subnet Mask: 255.255.255.0
+		      \item Address Allocation: Class C addresses are commonly used by small organizations and businesses. They provide a limited number of network addresses but a larger number of host addresses.
+	      \end{itemize}
+	      
+	\item \begin{itemize}
+		      \item Range: 224.0.0.0 to 239.255.255.255
+		      \item Address Allocation: Class D addresses are reserved for multicast groups and are not used for traditional unicast communication. They are used for one-to-many or many-to-many communication.
+	      \end{itemize}
+	      
+	\item \begin{itemize}
+		      \item Range: 240.0.0.0 to 255.255.255.255
+		      \item Address Allocation: Class E addresses are reserved for experimental or research purposes and are not typically used in public networks. They are reserved for future use and not intended for general use.
+	      \end{itemize}
+\end{enumerate}
+
+
+\subsection*{Source Code}
+\inputminted[firstline=5, lastline=25]{cpp}{code/ipv4class.cpp}
+\subsection*{Output}
+\begin{lstlisting}[style=output]
+$ ./ipv4class
+Enter an IPv4 address: 192.168.1.1
+Class: C
+\end{lstlisting}
+
+\section{Bellman-Ford Algorithm}
+\label{sec:Bellman-Ford Algorithm}
+
+\subsection{Objective}
+To implement the Bellman-Ford algorithm to find the shortest path
+in a weighted graph.
+
+\subsection{Theory}
+The Bellman-Ford algorithm is used to find the shortest paths from a 
+single source vertex to all other vertices in a weighted graph, even when the
+graph contains negative weight edges. While it's not the most efficient
+algorithm for all cases (especially for graphs with non-negative weights, where
+Dijkstra's algorithm is typically faster),
+
+\subsection{Source Code}
+\inputminted[firstline=5, lastline=54]{cpp}{code/bellmanford.cpp}
+
+\subsection{Output}
+\begin{lstlisting}[style=output]
+Enter the number of vertices and edges: 3 4
+Enter edge 1 (source, destination, weight): 0 1 5
+Enter edge 2 (source, destination, weight): 1 0 3
+Enter edge 3 (source, destination, weight): 1 2 -1
+Enter edge 4 (source, destination, weight): 2 0 1
+Enter the source vertex: 2
+Vertex  Distance from Source
+0       1
+1       6
+2       0
+\end{lstlisting}
+
+\end{document}
