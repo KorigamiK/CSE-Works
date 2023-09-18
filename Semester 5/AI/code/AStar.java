@@ -18,9 +18,9 @@ class Node implements Comparable<Node> {
 }
 
 public class AStar {
-    public static int astar(int[][] grid, int startX, int startY, int endX, int endY) {
-        int[] dx = { 1, -1, 0, 0 };
-        int[] dy = { 0, 0, 1, -1 };
+    public static List<Node> astar(int[][] grid, int startX, int startY, int endX, int endY) {
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
 
         PriorityQueue<Node> openSet = new PriorityQueue<>();
         Set<Node> closedSet = new HashSet<>();
@@ -32,7 +32,14 @@ public class AStar {
             Node current = openSet.poll();
 
             if (current.x == endX && current.y == endY) {
-                return current.cost;
+                // Reconstruct and return the path.
+                List<Node> path = new ArrayList<>();
+                while (current != null) {
+                    path.add(current);
+                    current = current.parent;
+                }
+                Collections.reverse(path);
+                return path;
             }
 
             closedSet.add(current);
@@ -53,7 +60,7 @@ public class AStar {
             }
         }
 
-        return -1; // Path not found
+        return null; // No path found.
     }
 
     public static boolean isValid(int x, int y, int[][] grid) {
@@ -66,20 +73,26 @@ public class AStar {
 
     public static void main(String[] args) {
         int[][] grid = {
-                { 0, 0, 0, 0, 0 },
-                { 0, 1, 1, 0, 0 },
-                { 0, 0, 0, 0, 0 },
-                { 0, 1, 0, 1, 0 },
-                { 0, 0, 0, 0, 0 }
+            {0, 0, 0, 0, 0},
+            {0, 1, 1, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 1, 0, 1, 0},
+            {0, 0, 0, 0, 0}
         };
 
-        int startX = 0, startY = 0;
-        int endX = 4, endY = 4;
+        int startX = 0;
+        int startY = 0;
+        int endX = 4;
+        int endY = 4;
 
-        int shortestPathLength = astar(grid, startX, startY, endX, endY);
+        List<Node> path = astar(grid, startX, startY, endX, endY);
 
-        if (shortestPathLength != -1) {
-            System.out.println("Shortest path length: " + shortestPathLength);
+        if (path != null) {
+            System.out.println("Shortest path length: " + (path.size() - 1)); // Subtract 1 for the starting node.
+            System.out.println("Path: ");
+            for (Node node : path) {
+                System.out.println("(" + node.x + ", " + node.y + ")");
+            }
         } else {
             System.out.println("No path found.");
         }
