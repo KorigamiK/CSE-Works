@@ -1,0 +1,5 @@
+code/*
+!code/*.py
+!code/*.c
+!code/*.cpp
+!code/*.txt
