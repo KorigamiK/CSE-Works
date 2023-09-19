@@ -1,7 +1,6 @@
 /**
  * Implementation of FCFS scheduling algorithm
  */
-
 #include <stdio.h>
 
 void find_waiting_time(int processes[], int n, int bt[], int wt[]) {
