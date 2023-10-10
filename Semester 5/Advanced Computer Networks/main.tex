@@ -134,6 +134,42 @@ Class: C
 
 \pagebreak
 
+\section{Classless Inter-Domain Routing (CIDR)}
+\label{sec:cidr}
+
+\subsection{Objective}
+To find the subnet mask, network address, and broadcast address of a given IP
+
+\subsection{Theory}
+Classless Inter-Domain Routing (CIDR) is an IP addressing scheme that improves
+the allocation of IP addresses and routing efficiency on the Internet. It
+allows for more flexible allocation of IP addresses than the original system of
+IP address classes (Class A, B, and C). CIDR is based on variable-length subnet
+masking (VLSM), which enables IP addresses to be allocated based on the actual
+need, rather than predefined classes.
+
+CIDR addresses are written in the form IP\_address/prefix\_length. For example,
+$192.168.1.0/24$ represents a CIDR address where the first $24$ bits are the
+network address, and the remaining 8 bits are available for host addresses.
+
+\subsection{Source Code}
+
+\inputminted[firstline=9, fontsize=\footnotesize]{cpp}{code/cidr.cpp}
+
+\subsection{Output}
+
+\begin{lstlisting}[style=output]
+$ code git:(main) ./cidr
+Network Address: 192.168.1.0/24
+Network Address: 10.0.0.0/8
+Network Address: 172.16.0.0/12
+192.168.1.1 is within the CIDR address ranges.
+10.1.2.3 is within the CIDR address ranges.
+172.16.1.1 is within the CIDR address ranges.
+8.8.8.8 is NOT within the CIDR address ranges.
+\end{lstlisting}
+
+\pagebreak
 
 \section{Distance Vector Routing Algorithm}
 \label{sec:Distance Vector Routing Algorithm}
