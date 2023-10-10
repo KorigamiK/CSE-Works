@@ -19,7 +19,7 @@ string binaryToDottedDecimal(const string &binaryIP) {
 }
 
 /*
- *Function to convert dotted decimal IP address to binary
+ * Function to convert dotted decimal IP address to binary
  * @param dottedDecimal - dotted decimal IP address
  * @return binaryIP - binary IP address
  * */
