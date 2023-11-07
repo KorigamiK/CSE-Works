@@ -1,1 +1,0 @@
-{"name":"Local: employee","url":"/home/korigamik/Dev/docs/CS-Assignment/Code/employee.cpp","tests":[{"id":1648887281491,"input":"1\njohn\n23\nbtech\n2\ndelhi\ndelhi\ndelhi\n2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/korigamik/Dev/docs/CS-Assignment/Code/employee.cpp","group":"local","local":true}

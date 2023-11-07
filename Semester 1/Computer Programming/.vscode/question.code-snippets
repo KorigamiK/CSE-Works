@@ -44,7 +44,7 @@
     "body": [
       "\\subsection{$1}\n",
       "\\subsubsection{$2}\n",
-      "\\inputminted[]{python}{../Code/$3.py}",
+      "\\inputminted[]{python}{./code/$3.py}",
       "\n\\subsubsection{Output}",
       "\\begin{figure}[!htb]",
       "\\centering",
