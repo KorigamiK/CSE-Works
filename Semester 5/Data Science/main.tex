@@ -1,0 +1,49 @@
+\documentclass{korigamik}
+
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage[fleqn]{amsmath}
+\usepackage{algorithm}
+\usepackage{enumitem}
+
+\title{Data Science}
+\titlelabel{Lab Report}
+\bottomnote{Department of Computer Science \& Engineering}
+\author{Kushagra Lakhwani}
+\rollno{2021UCI8036}
+\semester{5th}
+\course{CICPE02}
+\logoimage{res/NSUT.png}{0.6}{Netaji Subhas University \\ of Technology}
+\header{}
+
+\colorlet{mycoolgray}{gray!40}
+\lstdefinestyle{output}{
+	numbers=none, % where to put the line-numbers
+	numberstyle=\tiny, % the size of the fonts that are used for the line-numbers
+	backgroundcolor=\color{darkgray},
+	basicstyle=\ttfamily\color{white}\footnotesize,
+	captionpos=b, % sets the caption-position to bottom
+	breaklines=true, % sets automatic line breaking
+	breakatwhitespace=false,
+	keywordstyle=\color{white}\bfseries,
+	language=bash,
+}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecafterpnum}{\qquad\rule{2cm}{0.4pt}}
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\input{content/abstract.tex}
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\end{document}
