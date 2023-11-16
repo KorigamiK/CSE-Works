@@ -93,41 +93,41 @@ purposes.
 	\item \begin{itemize}
 		      \item Range: 1.0.0.0 to 126.255.255.255
 		      \item Subnet Mask: 255.0.0.0
-          \item Address Allocation: Class A addresses are typically used by
-            large organizations and corporations. They can support a very large
-            number of hosts on a single network.
+		      \item Address Allocation: Class A addresses are typically used by
+		            large organizations and corporations. They can support a very large
+		            number of hosts on a single network.
 	      \end{itemize}
-	      
+
 	\item \begin{itemize}
 		      \item Range: 128.0.0.0 to 191.255.255.255
 		      \item Subnet Mask: 255.255.0.0
-          \item Address Allocation: Class B addresses are used by medium-sized
-            organizations. They offer a moderate number of network and host
-            addresses.
+		      \item Address Allocation: Class B addresses are used by medium-sized
+		            organizations. They offer a moderate number of network and host
+		            addresses.
 	      \end{itemize}
-	      
+
 	\item \begin{itemize}
 		      \item Range: 192.0.0.0 to 223.255.255.255
 		      \item Subnet Mask: 255.255.255.0
-          \item Address Allocation: Class C addresses are commonly used by
-            small organizations and businesses. They provide a limited number
-            of network addresses but a larger number of host addresses.
+		      \item Address Allocation: Class C addresses are commonly used by
+		            small organizations and businesses. They provide a limited number
+		            of network addresses but a larger number of host addresses.
 	      \end{itemize}
-	      
+
 	\item \begin{itemize}
 		      \item Range: 224.0.0.0 to 239.255.255.255
-          \item Address Allocation: Class D addresses are reserved for
-            multicast groups and are not used for traditional unicast
-            communication. They are used for one-to-many or many-to-many
-            communication.
+		      \item Address Allocation: Class D addresses are reserved for
+		            multicast groups and are not used for traditional unicast
+		            communication. They are used for one-to-many or many-to-many
+		            communication.
 	      \end{itemize}
-	      
+
 	\item \begin{itemize}
 		      \item Range: 240.0.0.0 to 255.255.255.255
-          \item Address Allocation: Class E addresses are reserved for
-            experimental or research purposes and are not typically used in
-            public networks. They are reserved for future use and not intended
-            for general use.
+		      \item Address Allocation: Class E addresses are reserved for
+		            experimental or research purposes and are not typically used in
+		            public networks. They are reserved for future use and not intended
+		            for general use.
 	      \end{itemize}
 \end{enumerate}
 
@@ -182,61 +182,61 @@ Network Address: 172.16.0.0/12
 \end{lstlisting}
 
 \iffalse
-\pagebreak
+	\pagebreak
 
-\section{Distance Vector Routing Algorithm}
-\label{sec:Distance Vector Routing Algorithm}
+	\section{Distance Vector Routing Algorithm}
+	\label{sec:Distance Vector Routing Algorithm}
 
-\subsection{Objective}
-To implement the Distance-Vector Routing algorithm.
+	\subsection{Objective}
+	To implement the Distance-Vector Routing algorithm.
 
-\subsection{Theory}
-A distance-vector routing (DVR) protocol requires that a router inform its
-neighbors of topology changes periodically. Historically known as the old
-\textbf{\textit{ARPANET}} routing algorithm or known as \textbf{\textit{Bellman-Ford}} algorithm.
+	\subsection{Theory}
+	A distance-vector routing (DVR) protocol requires that a router inform its
+	neighbors of topology changes periodically. Historically known as the old
+	\textbf{\textit{ARPANET}} routing algorithm or known as \textbf{\textit{Bellman-Ford}} algorithm.
 
-Each router maintains a Distance Vector table containing the distance between
-itself and \textit{all} possible destination nodes. Distances, based on a
-chosen metric, are computed using information from the neighbors' distance
-vectors.
+	Each router maintains a Distance Vector table containing the distance between
+	itself and \textit{all} possible destination nodes. Distances, based on a
+	chosen metric, are computed using information from the neighbors' distance
+	vectors.
 
 
-\subsection{Information Kept by DV Router}
-\begin{itemize}
-	\item Each router has an ID.
-	\item Associated with each link connected to a router, there is a link cost
-	      (static or dynamic).
-	\item Intermediate hops.
-\end{itemize}
+	\subsection{Information Kept by DV Router}
+	\begin{itemize}
+		\item Each router has an ID.
+		\item Associated with each link connected to a router, there is a link cost
+		      (static or dynamic).
+		\item Intermediate hops.
+	\end{itemize}
 
-\subsection{Distance Vector Table Initialization}
-\begin{itemize}
-	\item Distance to itself = 0
-	\item Distance to all other routers = infinity number.
-\end{itemize}
+	\subsection{Distance Vector Table Initialization}
+	\begin{itemize}
+		\item Distance to itself = 0
+		\item Distance to all other routers = infinity number.
+	\end{itemize}
 
-\subsection{Distance Vector Algorithm}
-\begin{enumerate}
-	\item A router transmits its distance vector to each of its neighbors in a
-	      routing packet.
-	\item Each router receives and saves the most recently received distance
-	      vector from each of its neighbors.
-	\item A router recalculates its distance vector when:
-	      \begin{itemize}
-		      \item It receives a distance vector from a neighbor containing
-		            different information than before.
-		      \item It discovers that a link to a neighbor has gone down.
-	      \end{itemize}
-	\item The DV calculation is based on minimizing the cost to each destination:
-	      \begin{align*}
-		       & Dx(y) = \text{Estimate of least cost from x to y}               \\
-		       & C(x,v) = \text{Node x knows cost to each neighbor v}            \\
-		       & Dx = [Dx(y): y \in N] = \text{Node x maintains distance vector} \\
-		       & \text{Node x also maintains its neighbors' distance vectors:}   \\
-		       & \text{For each neighbor v, x maintains } Dv = [Dv(y): y \in N]
-	      \end{align*}
-\end{enumerate}
-\pagebreak
+	\subsection{Distance Vector Algorithm}
+	\begin{enumerate}
+		\item A router transmits its distance vector to each of its neighbors in a
+		      routing packet.
+		\item Each router receives and saves the most recently received distance
+		      vector from each of its neighbors.
+		\item A router recalculates its distance vector when:
+		      \begin{itemize}
+			      \item It receives a distance vector from a neighbor containing
+			            different information than before.
+			      \item It discovers that a link to a neighbor has gone down.
+		      \end{itemize}
+		\item The DV calculation is based on minimizing the cost to each destination:
+		      \begin{align*}
+			       & Dx(y) = \text{Estimate of least cost from x to y}               \\
+			       & C(x,v) = \text{Node x knows cost to each neighbor v}            \\
+			       & Dx = [Dx(y): y \in N] = \text{Node x maintains distance vector} \\
+			       & \text{Node x also maintains its neighbors' distance vectors:}   \\
+			       & \text{For each neighbor v, x maintains } Dv = [Dv(y): y \in N]
+		      \end{align*}
+	\end{enumerate}
+	\pagebreak
 \fi
 
 
@@ -248,7 +248,7 @@ To implement the Bellman-Ford algorithm to find the shortest path
 in a weighted graph.
 
 \subsection{Theory}
-The Bellman-Ford algorithm is used to find the shortest paths from a 
+The Bellman-Ford algorithm is used to find the shortest paths from a
 single source vertex to all other vertices in a weighted graph, even when the
 graph contains negative weight edges. While it's not the most efficient
 algorithm for all cases (especially for graphs with non-negative weights, where
@@ -304,7 +304,7 @@ applicable to graphs with positive edge weights.
 		\node[draw, circle] (2) at (6,0) {2};
 		\node[draw, circle] (3) at (3,-2) {3};
 		\node[draw, circle] (4) at (6,-2) {4};
-		
+
 		\draw[->, >=stealth, line width=1pt] (0) -- node[midway, left] {4} (1);
 		\draw[->, >=stealth, line width=1pt] (0) -- node[midway, right] {2} (2);
 		\draw[->, >=stealth, line width=1pt] (1) -- node[midway, above] {5} (2);
@@ -334,86 +334,105 @@ Node 3: 5
 Node 4: 4
 \end{lstlisting}
 
-\iffalse
-	\begin{figure}[ht]
-		\centering
-		\begin{tikzpicture}
-			% Nodes for locations
-			\node[draw, circle] (A) at (0,0) {A};
-			\node[draw, circle] (B) at (4,2) {B};
-			\node[draw, circle] (C) at (6,0) {C};
-			\node[draw, circle] (D) at (4,-3) {D};
-			\node[draw, circle] (E) at (10,0) {E};
-			
-			% Routers
-			\node[draw, rectangle] (RouterA) at (-1,-1) {Router A};
-			\node[draw, rectangle] (RouterB) at (4,3) {Router B};
-			\node[draw, rectangle] (RouterC) at (6,-1) {Router C};
-			\node[draw, rectangle] (RouterD) at (5,-5) {Router D};
-			\node[draw, rectangle] (RouterE) at (10,1) {Router E};
-			
-			% Computers
-			\node[draw, circle] (CompA1) at (-3,-2) {Comp};
-			\node[draw, circle] (CompA2) at (-3,-4) {Comp};
-			\node[draw, circle] (CompB1) at (2,4) {Comp};
-			\node[draw, circle] (CompB2) at (6,4) {Comp};
-			\node[draw, circle] (CompC1) at (9,-2) {Comp};
-			\node[draw, circle] (CompC2) at (8,-4) {Comp};
-			\node[draw, circle] (CompD1) at (2,-6) {Comp};
-			\node[draw, circle] (CompD2) at (6,-7) {Comp};
-			\node[draw, circle] (CompE1) at (13,0) {Comp};
-			\node[draw, circle] (CompE2) at (12,-2) {Comp};
-			
-			% Connections
-			\draw[->] (A) -- (RouterA);
-			\draw[->] (B) -- (RouterB);
-			\draw[->] (C) -- (RouterC);
-			\draw[->] (D) -- (RouterD);
-			\draw[->] (E) -- (RouterE);
-			
-			% Connections between computers and routers
-			\draw[->] (CompA1) -- (RouterA);
-			\draw[->] (CompA2) -- (RouterA);
-			\draw[->] (CompB1) -- (RouterB);
-			\draw[->] (CompB2) -- (RouterB);
-			\draw[->] (CompC1) -- (RouterC);
-			\draw[->] (CompC2) -- (RouterC);
-			\draw[->] (CompD1) -- (RouterD);
-			\draw[->] (CompD2) -- (RouterD);
-			\draw[->] (CompE1) -- (RouterE);
-			\draw[->] (CompE2) -- (RouterE);
-		\end{tikzpicture}
-		\caption{Network Topology Diagram}
-	\end{figure}
-	
-	\begin{table}[ht]
-		\centering
-		\begin{tabular}{|c|c|c|}
-			\hline
-			\textbf{Destination} & \textbf{Next Hop} & \textbf{Interface} \\ \hline
-			B                    & Router A          & A-Router Interface \\ \hline
-			C                    & Router A          & A-Router Interface \\ \hline
-			D                    & Router A          & A-Router Interface \\ \hline
-			E                    & Router A          & A-Router Interface \\ \hline
-			A                    & Router B          & B-Router Interface \\ \hline
-			C                    & Router B          & B-Router Interface \\ \hline
-			D                    & Router B          & B-Router Interface \\ \hline
-			E                    & Router B          & B-Router Interface \\ \hline
-			A                    & Router C          & C-Router Interface \\ \hline
-			B                    & Router C          & C-Router Interface \\ \hline
-			D                    & Router C          & C-Router Interface \\ \hline
-			E                    & Router C          & C-Router Interface \\ \hline
-			A                    & Router D          & D-Router Interface \\ \hline
-			B                    & Router D          & D-Router Interface \\ \hline
-			C                    & Router D          & D-Router Interface \\ \hline
-			E                    & Router D          & D-Router Interface \\ \hline
-			A                    & Router E          & E-Router Interface \\ \hline
-			B                    & Router E          & E-Router Interface \\ \hline
-			C                    & Router E          & E-Router Interface \\ \hline
-			D                    & Router E          & E-Router Interface \\ \hline
-		\end{tabular}
-		\caption{Static Routing Table}
-	\end{table}
-\fi
+
+\section{Leaky Bucket Algorithm} % (fold)
+\label{sec:Leaky Bucket Algorithm}
+
+\subsection{Objective}
+
+To implement the \textit{Leaky Bucket} algorithm for rate limiting network traffic.
+
+
+\subsection{Theory}
+
+\textit{Leaky Bucket} and \textit{Token Bucket} algorithms are  traffic shaping
+algorithms. The leaky bucket algorithm is a simple algorithm used in networking
+and telecommunications to control the rate at which data is transmitted.
+
+\begin{itemize}
+
+	\item \textbf{Bucket}: A bucket that can hold a certain amount of water (or
+	      data). The bucket has a leak, and it is being filled with water at a
+	      certain rate.
+
+	\item \textbf{Token Generation}: The water in the bucket represents data
+	      packets, and the leak represents the maximum rate at which the network can
+	      handle these packets. Tokens are generated at a fixed rate and added to the
+	      bucket. Each token represents the availability of the network to transmit
+	      one packet.
+
+	\item \textbf{Packet Arrival}: When a packet arrives, it needs a token to be
+	      transmitted. If there are tokens in the bucket, the packet is sent, and the
+	      corresponding number of tokens is removed from the bucket. If there are not
+	      enough tokens, the packet is either delayed or discarded.
+
+\end{itemize}
+
+
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{p{2.8in}|p{2.8in}}
+
+		\textbf{Leaky Bucket Algorithm}                                                                                                                                                                                   & \textbf{Token Bucket Algorithm}                                                                                                                                                                                                                          \rule[-1.2ex]{0pt}{0pt} \\ \hline
+
+		Smooths out bursty traffic and enforces a constant output rate                                                                                                                                                    & Allows for bursty traffic up to a specified limit while maintaining a long-term rate limit                                                                                                                                                                                       \\
+		Continuously removes tokens from the bucket at a fixed rate. If a packet arrives and there is a token available, it is removed and the packet is sent. If there are no tokens available, the packet is discarded. & Continuously adds tokens to the bucket at a fixed rate. If a packet arrives and there are enough tokens available, they are removed and the packet is sent. If there are not enough tokens available, the packet is queued until there are enough tokens.                        \\
+		Discards packets if the bucket is full                                                                                                                                                                            & Queues packets if the bucket is full                                                                                                                                                                                                                                             \\
+		Enforcing a strict, constant output rate                                                                                                                                                                          & Allowing short bursts of traffic while maintaining a long-term rate limit                                                                                                                                                                                                        \\
+		Simple and efficient                                                                                                                                                                                              & More flexible and can handle bursty traffic                                                                                                                                                                                                                                      \\
+		Can discard packets if the traffic is too bursty                                                                                                                                                                  & Can queue packets if the traffic is too bursty                                                                                                                                                                                                                                   \\
+	\end{tabular}
+\end{table}
+
+\pagebreak
+
+
+\subsection{Source Code}
+
+\inputminted[firstline=5, fontsize=\footnotesize]{cpp}{code/leakybucket.cpp}
+
+\subsection{Output}
+
+\begin{lstlisting}[style=output]
+Transmitting packet of size: 3
+Transmitting packet of size: 5
+Transmitting packet of size: 4
+\end{lstlisting}
+
+
+\section{Go-Back-N ARQ}
+\label{sec:Windowing Protocols}
+
+\subsection{Objective}
+To implement the \textit{Go-back-N ARQ} algorithm in computer networks.
+
+\subsection{Theory}
+
+The Go-Back-N Automatic Repeat reQuest (ARQ) is a protocol used for reliable
+communication in computer networks. It is especially useful in situations where
+data integrity is crucial.
+
+\subsection{Source Code} % (fold)
+
+\inputminted[firstline=5, fontsize=\footnotesize]{cpp}{code/narq.cpp}
+
+\subsection{Output}
+
+\begin{lstlisting}[style=output]
+Sending Frame with SeqNum: 0 : Data0
+Timer Started for SeqNum: 0
+Sending Frame with SeqNum: 1 : Data1
+Sending Frame with SeqNum: 2 : Data2
+Sending Frame with SeqNum: 3 : Data3
+Window is full. Cannot send more frames.
+Window is full. Cannot send more frames.
+Window is full. Cannot send more frames.
+Window is full. Cannot send more frames.
+Received ACK for SeqNum: 1
+Window is full. Cannot send more frames.
+Window is full. Cannot send more frames.
+Received ACK for SeqNum: 3
+\end{lstlisting}
 
 \end{document}
