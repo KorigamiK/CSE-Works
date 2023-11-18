@@ -26,11 +26,11 @@ header-includes:
 
 # Assignment 1 {-}
 
-## $Q_1$ Explain the use of decision trees in data science.
+## _**Q1.**_ Explain the use of decision trees in data science.
 
-**Answer.** Decision trees are a fundamental tool in the field of data science.
-They are versatile and intuitive machine learning algorithms used for both
-_classification_ and _regression_ tasks. Decision trees work by recursively
+_**Answer.**_ Decision trees are a fundamental tool in the field of data
+science. They are versatile and intuitive machine learning algorithms used for
+both _classification_ and _regression_ tasks. Decision trees work by recursively
 splitting the dataset into subsets based on the most significant attribute at
 each node. These splits create a tree-like structure of decisions, where each
 internal node represents a decision based on a specific feature, and each leaf
@@ -63,9 +63,9 @@ An example of a decision tree is shown below.
 
 ![](./decisiontree.png)
 
-## $Q_2$ Take any real-life problem related to data science and solve it using a decision tree to solve in _Python_.
+## ___Q2.___ Take any real-life problem related to data science and solve it using a decision tree to solve in _Python_.
 
-**Answer**. We can use Decision Tree classification to predict the labels from
+_**Answer**_. We can use Decision Tree classification to predict the labels from
 the Pima Indians Diabetes Database[^dataset].
 
 [^dataset]: https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
@@ -122,10 +122,10 @@ Accuracy: 0.6753246753246753
 
 # Assignment 2 {-}
 
-## $Q_1$ Explain the use of prediction and classification in data science.
+## _**Q1.**_ Explain the use of prediction and classification in data science.
 
-**Answer.** **Prediction** and **Classification** are two fundamental tasks used
-to extract meaningful insights from data and make informed decisions.
+_**Answer.**_ **Prediction** and **Classification** are two fundamental tasks
+used to extract meaningful insights from data and make informed decisions.
 
 ### Prediction in Data Science:
 
@@ -186,9 +186,9 @@ various fields, including technology and beyond.
 
 \pagebreak
 
-## $Q_2$ Write a program for text summarization using python.
+## _**Q2.**_ Write a program for text summarization using python.
 
-**Answer.** We can use the NLTK[^nltk] library for text summarization.
+_**Answer.**_ We can use the NLTK[^nltk] library for text summarization.
 
 [^nltk]: https://www.nltk.org/
 
