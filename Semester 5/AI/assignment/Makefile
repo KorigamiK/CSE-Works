@@ -27,6 +27,7 @@ TARGET=assignment
 all: $(patsubst %.md,%.pdf,$(wildcard *.md))
 
 PANDOC_FLAGS =\
+	--citeproc \
 	-f markdown+tex_math_single_backslash \
 	-t latex \
 
@@ -43,7 +44,7 @@ endif
 all: $(patsubst %.md,%.pdf,$(wildcard *.md))
 
 # Generalized rule: how to build a .pdf from each .md
-%.pdf: %.md
+%.pdf: %.md refs.bib
 	pandoc $(PANDOC_FLAGS) $(LATEX_FLAGS) -o $@ $<
 
 # Generalized rule: how to build a .tex from each .md

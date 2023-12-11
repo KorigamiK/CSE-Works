@@ -13,6 +13,7 @@ colorlinks: true
 linkcolor: RoyalBlue
 urlcolor: RoyalBlue
 header-includes:
+    - '\usepackage{url}'
     - '\newcommand{\hwname}{Kushagra lakhwani}'
     - '\newcommand{\hwemail}{\textit{2021UCI8036}}'
     - '\newcommand{\hwtype}{}'
@@ -20,11 +21,14 @@ header-includes:
     - '\newcommand{\hwclass}{Artificial Intellignece \& Machine Learning}'
     - '\newcommand{\hwlecture}{}'
     - '\newcommand{\hwsection}{}'
+nocite: |
+  @*
+bibliography: refs.bib
 ---
 
 \maketitle
 
-# Assignment 2 {-}
+# Assignment {-}
 
 \begin{centering}
 
@@ -41,50 +45,106 @@ header-includes:
 In the realm of _**data preprocessing**_, normalization plays a crucial role in
 enhancing the performance of machine learning algorithms. It is a technique
 employed to bring disparate features onto a common scale, ensuring that no
-single feature dominates the learning process. I will delve into the nuances of
-normalization, focusing on the comparison between traditional
-_**normalization**_, _**0-1 normalization**_ _(Min-Max scaling)_, and
-_**standardization**_. As the head of the college magazine's tech section,
-understanding these techniques is paramount for any tech enthusiast venturing
-into the exciting world of data science and machine learning.
+single feature dominates the learning process.
 
-## Normalization
+I will explore the intricacies of normalization, emphasizing the distinctions
+among conventional _**normalization**_, _**0-1 normalization**_ _(Min-Max
+scaling)_, and _**standardization**_.
 
-Normalization is a preprocessing technique that transforms features to a common
-scale without distorting the differences in the ranges of values. The primary
-goal is to make the data comparable and eliminate biases that may arise due to
-the differing magnitudes of features. The formula for normalization is given by:
+## The need for Normalization
 
-$$ X_{\text{normalized}} = \frac{X - \text{min}(X)} {\text{max}(X) -
-\text{min}(X)} $$
+There are a number of reasons that we use normalization techniques and _Gaussian
+Distributinos_ in our data preprocessing.
 
-Here, \(X_{\text{normalized}}\) represents the normalized value, \(X\) is the
-original value, \(X_{\text{min}}\) is the minimum value in the feature, and
-\(X_{\text{max}}\) is the maximum value in the feature.
+1. **Common Occurrence in Nature:** Many natural phenomena follow a normal
+   distribution. Examples include the distribution of heights, weights, IQ
+   scores, and errors in measurements. Therefore, is a good approximation of the
+   true distribution.
 
-\pagebreak
+2. **Central Limit Theorem (CLT):** At its core, the Central Limit Theorem
+   posits that the cumulative (or mean) of numerous independent and identically
+   distributed random variables, irrespective of their initial distribution,
+   will tend toward an approximate normal distribution. This theorem holds
+   paramount significance in statistics as it enables the derivation of
+   population inferences from sample data.
 
-Consider a dataset with a 'Salary' feature ranging from 20,000 to 100,000. To
-normalize the 'Salary' feature, we would apply the following formula:
+3. **Statistical Inference:** Normal distributions are mathematically
+   well-behaved, making statistical inference more straightforward. For example,
+   when dealing with confidence intervals and hypothesis testing, assuming
+   normality simplifies calculations and allows for the use of common
+   statistical tests such as z-tests and t-tests.
+
+4. **Parameter Estimation:** In many statistical models, parameters are
+   estimated using maximum likelihood estimation (MLE) or other techniques. When
+   the underlying distribution is normal, the MLE estimates have desirable
+   properties, making them easy to interpret and work with.
+
+5. **Data Transformation:** Normalizing data (making it follow a normal
+   distribution) is a common preprocessing step in data analysis. Some
+   statistical methods, such as linear regression, assume that the residuals are
+   normally distributed. Therefore, normalizing data helps meet these
+   assumptions.
+
+6. **Quality Control:** In quality control and manufacturing processes, normal
+   distributions are often used to model variations in product characteristics.
+   This helps in setting tolerance limits and making decisions about the quality
+   of products.
+
+7. **Machine Learning Algorithms:** Some machine learning algorithms, like those
+   based on Gaussian processes or certain clustering techniques, assume
+   normality in the underlying data. Understanding the normal distribution is
+   crucial for these algorithms.
+
+8. **Risk Assessment and Finance:** In finance, the normal distribution is often
+   used to model the distribution of returns on investments. This is a
+   simplification, but it provides a useful framework for risk assessment and
+   portfolio management.
+
+They simplify statistical analysis, facilitate hypothesis testing, and are basis
+for statistical and machine learning techniques. However, it's crucial to note
+that not all datasets follow a normal distribution, and it's essential to assess
+the appropriateness of assuming normality in a given context.
+
+## Normalization: Feature Scaling
+
+Feature scaling is a crucial preprocessing technique aimed at standardizing the
+scale of different features without altering the inherent intervals between
+their values. The primary objective is to render the data comparable, mitigating
+biases that may emerge due to varying magnitudes across features. The
+normalization formula, a key tool in this process, is expressed as:
+
+\[ X_{\text{normalized}} = \frac{X - \text{min}(X)}{\text{max}(X) -
+\text{min}(X)} \]
+
+In this equation, \(X_{\text{normalized}}\) signifies the normalized value,
+\(X\) represents the original value, \(X_{\text{min}}\) denotes the minimum
+value within the feature, and \(X_{\text{max}}\) signifies the maximum value
+within the feature.
+
+To illustrate, consider a dataset featuring a 'Salary' attribute ranging from
+20,000 to 100,000. Applying the normalization formula to 'Salary' involves the
+following computation:
 
 ```python
 salary_normalized = (salary - 20000) / (100000 - 20000)
 ```
 
-This would transform the 'Salary' feature to a range between 0 and 1.
+This transforms the 'Salary' feature into a standardized range between 0 and 1,
+facilitating a more meaningful comparison across diverse features.##
+Standardization
 
 ## Standardization
 
 Standardization, also known as _**Z-score**_ normalization, centers the data
-into a distribution with a mean (\(\mu\)) of 0 and a standard deviation
-(\(\sigma\)) of 1. The standardization formula is given by: . This is done by
-subtracting the mean from each data point and then dividing by the standard
-deviation.
+into a distribution with a standard deviation (\(\sigma\)) of 1 and a mean
+(\(\mu\)) equal to 0. This is done by subtracting the mean from each data point
+and then dividing by the standard deviation. The standardization formula is
+given by:
 
 $$ X_{\text{standardized}} = \frac{X - \mu}{\sigma} $$
 
-This technique is particularly effective when dealing with algorithms that
-assume a Gaussian distribution in the input data.
+This technique is particularly effective when dealing with data that assumes a
+Gaussian distribution in the input data.
 
 Consider the same dataset with a 'Salary' feature ranging from 20,000 to
 100,000. To standardize the 'Salary' feature, we would apply the following
@@ -110,7 +170,11 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # Creating a sample dataset
-data = np.array([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]])
+data = np.array([
+    [5.1, 6.0, 6.0], 
+    [7.3, 3.1, 6.5], 
+    [2.0, 8.6, 8.5]
+])
 
 # Print the original dataset
 print("Original Dataset:")
@@ -142,71 +206,96 @@ print(standardized_data)
 
 ```py
 Original Dataset:
-[[1. 2. 3.]
- [4. 5. 6.]
- [7. 8. 9.]]
+[[5.1 6.  6. ]
+ [7.3 3.1 6.5]
+ [2.  8.6 8.5]]
 
 Normalized Data:
-[[0.  0.  0. ]
- [0.5 0.5 0.5]
- [1.  1.  1. ]]
+[[0.58490566 0.52727273 0.        ]
+ [1.         0.         0.2       ]
+ [0.         1.         1.        ]]
 
 0-1 Normalized Data:
-[[0.  0.  0. ]
- [0.5 0.5 0.5]
- [1.  1.  1. ]]
+[[0.58490566 0.52727273 0.        ]
+ [1.         0.         0.2       ]
+ [0.         1.         1.        ]]
 
 Standardized Data:
-[[-1.22474487 -1.22474487 -1.22474487]
- [ 0.          0.          0.        ]
- [ 1.22474487  1.22474487  1.22474487]]
+[[ 0.13798878  0.04451411 -0.9258201 ]
+ [ 1.14990648 -1.24639507 -0.46291005]
+ [-1.28789526  1.20188096  1.38873015]]
 ```
 
 \pagebreak
 
-## Comparative Analysis: When to Choose What
+## Comparative Evaluation: Selecting the Appropriate Scaling Method
 
-The choice between normalization and standardization depends on the nature of
-the data and the requirements of the machine learning algorithm. Normalization
-is suitable when the data follows a uniform distribution and the algorithm used
-is sensitive to the scale of input features. On the other hand, standardization
-is preferred when the data has a Gaussian distribution and the algorithm
-benefits from a mean of 0 and a standard deviation of 1.
+The choice between standardization and normalization hinges on the inherent
+characteristics of the data and the specific requirements of the machine
+learning algorithm in use. The decision is nuanced and depends on various
+factors that influence the scaling approach.
 
-| Normalization (Min-Max Scaling)                                      | Standardization (Z-Score Scaling)                                               |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Transforms the data to a specified range, typically between 0 and 1. | Centers the data around a mean of 0 and scales it to a standard deviation of 1. |
-| `x_normalized = (x - min(X)) / (max(X) - min(X))`                    | `x_standardized = (x - μ) / σ`                                                  |
-| Not sensitive to the absolute values of the features.                | Sensitive to the relative values of the features.                               |
-| Uniform distribution, algorithms sensitive to absolute values.       | Gaussian distribution, algorithms sensitive to relative values.                 |
-| Salary is normalized to the range 0 to 1.                            | Salary is centered around a mean of 0 and a standard deviation of 1.            |
-| Preserves the original range of the data.                            | Easy to interpret, makes features comparable.                                   |
-| Sensitive to outliers.                                               | Assumes Gaussian distribution.                                                  |
+**Normalization**, specifically Min-Max Scaling, proves effective in scenarios
+where the data adheres to a uniform distribution, and the machine learning
+algorithm's performance is notably impacted by the scale of input features.
+Utilizing the formula:
 
-- **Normalization** is generally preferred when the data is assumed to have a
-  uniform distribution or when the algorithm is sensitive to the absolute values
-  of the features.
+\[ x_{\text{normalized}} = \frac{x - \text{min}(X)}{\text{max}(X) -
+\text{min}(X)} \]
 
-- **Standardization** is generally preferred when the data is assumed to have a
-  Gaussian distribution or when the algorithm is sensitive to the relative
-  values of the features.
+this method transforms the data to a specified range, typically between 0 and 1.
+It is particularly suitable for situations where the algorithm is not sensitive
+to the absolute values of the features.
+
+**Standardization**, or Z-Score Scaling, is the preferred choice when dealing
+with data that follows a Gaussian distribution. This method ensures that the
+data is centered around a mean of 0 and scaled to a standard deviation of 1,
+offering advantages to algorithms sensitive to the relative values of features.
+The standardization formula:
+
+\[ x_{\text{standardized}} = \frac{x - \mu}{\sigma} \]
+
+provides a means to center the data and standardize it effectively. This
+approach is beneficial for algorithms that rely on the assumption of a Gaussian
+distribution and prioritize sensitivity to relative feature values.
 
 \pagebreak
 
+### Comparison Summary:
+
+| **Normalization (Min-Max Scaling)**                                                   | **Standardization (Z-Score Scaling)**                                        |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Transforms data to a specified range (usually 0 to 1).                                | Centers data around a mean of 0 and scales it to a standard deviation of 1.  |
+| \( x_{\text{normalized}} = \frac{x - \text{min}(X)}{\text{max}(X) - \text{min}(X)} \) | \( x_{\text{standardized}} = \frac{x - \mu}{\sigma} \)                       |
+| Not sensitive to the absolute values of features.                                     | Sensitive to the relative values of features.                                |
+| Appropriate for uniform distribution; algorithms sensitive to absolute values.        | Suitable for Gaussian distribution; algorithms sensitive to relative values. |
+| e.g., Salary is normalized to the range 0 to 1.                                       | e.g., Salary is centered around a mean of 0 and a standard deviation of 1.   |
+| Preserves the original range of the data.                                             | Easy to interpret, facilitates feature comparability.                        |
+| May be sensitive to outliers.                                                         | Assumes Gaussian distribution.                                               |
+
 ## Conclusion
 
+In summary, **Normalization** is favored when assuming a uniform distribution or
+dealing with algorithms sensitive to absolute values, while **Standardization**
+is the go-to choice for Gaussian distribution assumptions and algorithms
+sensitive to relative values. These methods are complementary, making the
+selection dependent on the specific characteristics of the data and the nuances
+of the machine learning task at hand.## Conclusion
+
 Normalization and standardization are essential data preprocessing techniques
-that can improve the performance of machine learning models. The choice between
-the two methods depends on the specific algorithm and the characteristics of the
+which improve the performance of machine learning models. The choice between the
+two methods depends on the specific algorithm and the characteristics of the
 data. Understanding the strengths and weaknesses of each method is crucial for
 selecting the most appropriate approach for a given task.
 
 Whether opting for the simplicity of normalization, the bounded scale of 0-1
-normalization, or the standardized distribution, the choice should align with
-the characteristics of the dataset and the requirements of the algorithm at
+normalization, or the standardized distribution, the choice is made according to
+the features of the dataset and the specific requirements of the algorithm at
 hand.
 
-In conclusion, the world of scaling techniques offers a palette of choices, each
-with its unique strengths and applications. As tech enthusiasts, embracing and
-mastering these techniques is not merely a choice but a key to unlocking the
-true potential of data-driven technologies.
+In conclusion, scaling techniques offers a palette of choices, each with its
+unique strengths and applications. As tech enthusiasts, embracing and mastering
+these techniques is not merely a choice but a key to unlocking the true
+potential of data-driven technologies.
+
+## \LARGE Bibliography {-}
