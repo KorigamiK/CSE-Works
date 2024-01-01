@@ -1,4 +1,4 @@
-# CSE-Works.
+# CSE Coursework
 
 A place for Computer Science Engineering curriculum works.
 
