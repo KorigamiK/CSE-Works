@@ -1,0 +1,2 @@
+-I/usr/avr/include/
+-mmcu=atmega328
